@@ -14,14 +14,42 @@ async function getData() {
       },
     });
     const retData = await data.json();
-    console.log("data", retData);
+    // console.log("data", retData);
     return retData;
   } catch (err) {
     console.error("Error in loading data from server", err);
-    return err;
+    return "Error, please check console for details";
   }
 }
 
+// get the student data from server
+async function getStuData() {
+  try {
+    const data = await fetch("http://localhost:5000/profile", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    });
+    const retData = await data.json();
+    // console.log("data", retData);
+    return retData;
+  } catch (err) {
+    console.error("Error in loading data from server", err);
+    return "error, please check console for details";
+  }
+}
+
+async function getAnnouncement() {
+  try {
+    const data = await fetch("http://localhost:5000/announcement");
+    const retData = await data.json();
+    // console.log("data", retData);
+    return retData;
+  } catch (err) {
+    console.error("Error in loading data from server", err);
+    return "error, please check console for details";
+  }
+}
 // test class to view the server response
 class Test extends React.Component {
   constructor(props) {
@@ -41,10 +69,6 @@ class Test extends React.Component {
       });
   }
   render() {
-    console.log(
-      "Current token stored in local storage",
-      localStorage.getItem("userToken")
-    );
     return <div>{JSON.stringify(this.state.user)}</div>;
   }
 }
@@ -65,7 +89,7 @@ class Login extends React.Component {
         localStorage.getItem("userToken")
       );
     } catch (err) {
-      console.log("Login failure. No token saved in localStorage");
+      console.log("Login failure. Incorrect email or password");
       console.error(err);
     }
   }
@@ -96,12 +120,61 @@ class Logout extends React.Component {
   }
 }
 
+class Student extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+    };
+  }
+  componentDidMount() {
+    getStuData()
+      .then((res) => {
+        // console.log(res[0].email);
+        this.setState({ user: res });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  render() {
+    console.log(
+      "Current token stored in local storage",
+      localStorage.getItem("userToken")
+    );
+    return <div>{JSON.stringify(this.state.user)}</div>;
+  }
+}
+
+class Announcement extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+    };
+  }
+  componentDidMount() {
+    getAnnouncement()
+      .then((res) => {
+        // console.log(res[0].email);
+        this.setState({ user: res });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  render() {
+    return <div>{JSON.stringify(this.state.user)}</div>;
+  }
+}
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <Test />
     <Login />
     <Logout />
+    <Student />
+    <Announcement />
   </React.StrictMode>,
   document.getElementById("root")
 );
