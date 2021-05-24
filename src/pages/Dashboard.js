@@ -14,11 +14,11 @@ class Dashboard extends Component {
     render() {
         return(
             <div className="flex flex-col min-h-screen overflow-hidden">
-
                 {/*  Site header */}
                 <Header type="dashboard" />
 
                 {/*  Page content */}
+                <div  className="dashboard__section">
                 <main className="dashboard__container flex-grow">
                     <div className="dashboard__profile">
                         <Profile />
@@ -33,6 +33,7 @@ class Dashboard extends Component {
                     </div>
                 </main>
 
+                </div>
                 {/*  Site footer */}
                 <Footer />
 
