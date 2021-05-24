@@ -20,6 +20,7 @@ const Profile = () => {
             </div>
             <div  className="profile__cunt-2">
                 <div className="profile__cunt-2-details"><span>Email :</span>rdt@mail.com</div>
+                <div className="profile__cunt-2-details"><span>Phone Number :</span>98XXXXXXXX</div>
                 <div className="profile__cunt-2-details"><span>Branch    :</span>CS</div>
                 <div className="profile__cunt-2-details"><span>Expected Graduation :</span>2021</div>
                 <div className="profile__cunt-2-details-2">
