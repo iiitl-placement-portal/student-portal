@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 
 import "./css/style.scss";
 
@@ -41,9 +41,9 @@ function App() {
   return (
     <>
       <Switch>
-        {/* <Route exact path="/">
-          <Home />
-        </Route> */}
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
         <Route exact path="/home">
           <Dashboard />
         </Route>
