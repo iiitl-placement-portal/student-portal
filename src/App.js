@@ -6,8 +6,9 @@ import "./css/style.scss";
 import AOS from "aos";
 import { focusHandling } from "cruip-js-toolkit";
 
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import JobsApply from "./pages/JobsApply";
 import Login from "./components/Login/Login";
 import Logout from "./components/Login/Logout";
 import ResetPassword from "./pages/ResetPassword";
@@ -41,11 +42,17 @@ function App() {
   return (
     <>
       <Switch>
-        {/* <Route exact path="/">
+        <Route exact path="/">
           <Home />
-        </Route> */}
+        </Route>
         <Route exact path="/home">
           <Dashboard />
+        </Route>
+        <Route exact path="/jobs-apply">
+          <JobsApply title="Apply for Jobs"/>
+        </Route>
+        <Route exact path="/job-applied">
+          <JobsApply title="Applied Jobs" />
         </Route>
         <Route path="/login">
           <Login setToken={setToken} />

@@ -159,3 +159,80 @@
         font-weight: 800;
     }
 }
+
+
+// //////////////////////////Job card/////////////////
+.jobsApply__card{
+    // margin: 10rem auto;
+    display: flex;
+    margin-bottom: 2rem;
+    padding: 0.2rem;
+
+    width: 25rem;
+    height: 12rem;
+    overflow: hidden;
+    background-color: rgb(105, 211, 211);
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 0.3rem;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition:  all 0.3s;
+
+    &--img{
+        flex: 1;
+        img{
+            height: 5rem;
+        }
+    }
+    &--details{
+        flex: 3;
+    }
+    &--heading{
+        h3{
+            color: rgb(93, 93, 93);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        p{
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: rgb(110, 106, 106);
+        }
+    }
+    &--desc{
+        // background-color: rgb(175, 223, 127);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        margin: 1rem;
+        margin-left: 0;
+        width: 90%;
+        &-field{
+            width: 43%;
+            display: flex;    
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.2rem;
+
+            img{
+                height: 1.8rem;
+            }
+            p{
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: gray;
+            }
+            h4{
+                font-size: 1.1rem;
+                color: hotpink;
+            }
+        }
+    }
+
+    &:hover{
+        transform: scale(1.04);
+    }
+}

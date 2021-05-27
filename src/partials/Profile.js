@@ -1,8 +1,7 @@
 import React ,{Component, Profiler} from 'react';
-import PersonImg from "./../images/banda.jpg";
-import Footer from "./../partials/Footer";
-
 import "./css/styles.css";
+import SvgIcon from "./SvgIcon";
+
 
 const Profile = () => {
 
@@ -10,7 +9,8 @@ const Profile = () => {
         <div className="profile__card">
             <div className="profile__cunt-1">
                 <div className="profile__img">
-                    <img src={PersonImg} />
+                    {/* <img src={PersonImg} /> */}
+                    <SvgIcon src="banda.jpg" />
                 </div>
                 <div  className="profile__cunt-1-details">
                     <h3>Name Name</h3>
