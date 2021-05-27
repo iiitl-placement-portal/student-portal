@@ -11,7 +11,7 @@ async function loginUser(credentials) {
     body: JSON.stringify(credentials),
   });
   data = await data.json();
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
@@ -27,6 +27,7 @@ export default function Login({ setToken }) {
       email,
       password,
     });
+    // console.log(token)
     setToken(token);
     history.push("/home");
   };
