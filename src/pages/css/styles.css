@@ -1,0 +1,75 @@
+.dashboard__section {
+  background-color: #efefef;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23e5e5e5' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b3b3b3' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23dfdfdf' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23afafaf' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9d9d9' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23acacac' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3d3d3' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23a8a8a8' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23cdcdcd' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23a5a5a5' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23c7c7c7' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23a1a1a1' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard__container {
+  margin: 5rem auto;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard__cunt-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -2rem;
+  padding: 2rem;
+}
+
+.dashboard__cunt-2 > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.jobsApply__section {
+  background-image: linear-gradient(216deg, rgba(77, 77, 77, 0.05) 0%, rgba(77, 77, 77, 0.05) 25%, rgba(42, 42, 42, 0.05) 25%, rgba(42, 42, 42, 0.05) 38%, rgba(223, 223, 223, 0.05) 38%, rgba(223, 223, 223, 0.05) 75%, rgba(36, 36, 36, 0.05) 75%, rgba(36, 36, 36, 0.05) 100%), linear-gradient(44deg, rgba(128, 128, 128, 0.05) 0%, rgba(128, 128, 128, 0.05) 34%, rgba(212, 212, 212, 0.05) 34%, rgba(212, 212, 212, 0.05) 57%, rgba(25, 25, 25, 0.05) 57%, rgba(25, 25, 25, 0.05) 89%, rgba(135, 135, 135, 0.05) 89%, rgba(135, 135, 135, 0.05) 100%), linear-gradient(241deg, rgba(55, 55, 55, 0.05) 0%, rgba(55, 55, 55, 0.05) 14%, rgba(209, 209, 209, 0.05) 14%, rgba(209, 209, 209, 0.05) 60%, rgba(245, 245, 245, 0.05) 60%, rgba(245, 245, 245, 0.05) 69%, rgba(164, 164, 164, 0.05) 69%, rgba(164, 164, 164, 0.05) 100%), linear-gradient(249deg, rgba(248, 248, 248, 0.05) 0%, rgba(248, 248, 248, 0.05) 32%, rgba(148, 148, 148, 0.05) 32%, rgba(148, 148, 148, 0.05) 35%, rgba(202, 202, 202, 0.05) 35%, rgba(202, 202, 202, 0.05) 51%, rgba(181, 181, 181, 0.05) 51%, rgba(181, 181, 181, 0.05) 100%), linear-gradient(92deg, rgba(231, 234, 247, 0.99), rgba(231, 234, 247, 0.99));
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jobsApply__section-heading {
+  text-transform: uppercase;
+  margin: 6rem auto 4rem auto;
+  font-size: 2rem;
+  font-weight: 700;
+  -webkit-transform: scale(1.2, 1);
+          transform: scale(1.2, 1);
+}
+
+.jobsApply__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  width: 85%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=styles.css.map */
