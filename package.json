@@ -12,6 +12,7 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
     "cruip-js-toolkit": "^1.0.3",
+    "jsonwebtoken": "^8.5.1",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.9",
     "react": "^17.0.2",
