@@ -172,7 +172,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 2rem;
+  margin: 1rem;
   padding: 0.2rem;
   width: 25rem;
   height: 12rem;
@@ -265,5 +265,133 @@
 .jobsApply__card:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
+}
+
+.jobsProfile__section {
+  width: 100%;
+  background-image: linear-gradient(135deg, transparent 0%, transparent 17%, rgba(87, 146, 234, 0.21) 17%, rgba(87, 146, 234, 0.21) 59%, transparent 59%, transparent 64%, rgba(149, 170, 236, 0.29) 64%, rgba(149, 170, 236, 0.29) 100%), linear-gradient(45deg, transparent 0%, transparent 2%, rgba(189, 221, 255, 0.47) 2%, rgba(189, 221, 255, 0.47) 46%, rgba(114, 178, 239, 0.27) 46%, rgba(114, 178, 239, 0.27) 54%, transparent 54%, transparent 63%, rgba(170, 186, 248, 0.29) 63%, rgba(170, 186, 248, 0.29) 100%), linear-gradient(90deg, white, white);
+}
+
+.jobsProfile__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  margin: 7rem auto;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.jobsProfile__container > div {
+  margin: 1.5rem;
+}
+
+.jobsProfile__header {
+  text-align: left;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: baseline;
+      -ms-flex-pack: baseline;
+          justify-content: baseline;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 80%;
+}
+
+.jobsProfile__header-img img {
+  height: 5rem;
+}
+
+.jobsProfile__header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.jobsProfile__header p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #646363;
+  -webkit-transform: scale(1.01, 0.9);
+          transform: scale(1.01, 0.9);
+}
+
+.jobsProfile__header-details {
+  margin: 1rem 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.jobsProfile__header-details h6 {
+  font-size: 0.94rem;
+}
+
+.jobsProfile__header-details p {
+  font-size: 0.91rem;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.jobsProfile__main-heading h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  -webkit-transform: scale(1.1, 0.9) translateX(5%);
+          transform: scale(1.1, 0.9) translateX(5%);
+}
+
+.jobsProfile__main-para {
+  margin: 1rem;
+}
+
+.jobsProfile__main-para h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #645f5f;
+}
+
+.jobsProfile__main-para p {
+  font-size: 0.96rem;
+  font-weight: 200;
+}
+
+.jobsProfile__footer {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
+.jobsProfile__footer h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  -webkit-transform: scale(1.1, 0.9);
+          transform: scale(1.1, 0.9);
 }
 /*# sourceMappingURL=styles.css.map */

@@ -13,6 +13,7 @@ import JobsApply from "./pages/JobsApply";
 import Login from "./components/Login/Login";
 import Logout from "./components/Login/Logout";
 import ResetPassword from "./pages/ResetPassword";
+import JobProfile from "./partials/JobProfile";
 
 import useToken from "./components/App/useToken";
 
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route exact path="/jobs-apply">
           <JobsApply title="All Jobs" />
+        </Route>
+        <Route path="/jobs/:id">
+          <JobProfile />
         </Route>
         <Route exact path="/job-applied">
           <JobsApply title="Applied Jobs" />
