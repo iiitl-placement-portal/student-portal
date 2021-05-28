@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
+import * as jwt from "jsonwebtoken";
 
 import "./css/style.scss";
 
@@ -38,6 +39,14 @@ function App() {
   const { token, setToken } = useToken();
   if (!token) {
     return <Login setToken={setToken} />;
+  } else {
+    const payload = jwt.decode(token);
+    // console.log(payload);
+    // console.log(Date.now()/1000)
+    if (payload.exp <= Date.now() / 1000) {
+      localStorage.removeItem("token");
+      return <Login setToken={setToken} />;
+    }
   }
 
   return (
@@ -51,7 +60,7 @@ function App() {
           <Dashboard />
         </Route>
         <Route exact path="/jobs-apply">
-          <JobsApply title="Apply for Jobs"/>
+          <JobsApply title="All Jobs" />
         </Route>
         <Route path="/jobs/:id">
           <JobProfile />
