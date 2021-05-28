@@ -16,7 +16,7 @@ async function getStuData() {
       },
     });
     const retData = await data.json();
-    // console.log("data", retData);
+    console.log("data", retData);
     return retData;
   } catch (err) {
     console.error("Error in loading data from server", err);

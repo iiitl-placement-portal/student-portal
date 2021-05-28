@@ -22,16 +22,22 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: #e97aa3;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
+  padding: 0 auto;
+  margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-top: -2rem;
   padding: 2rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .dashboard__cunt-2 > div {
@@ -69,7 +75,7 @@
           align-items: center;
   -ms-flex-line-pack: justify;
       align-content: space-between;
-  width: 85%;
+  width: 87%;
   margin: 0 auto;
 }
 /*# sourceMappingURL=styles.css.map */

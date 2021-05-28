@@ -3,7 +3,7 @@ import "./css/styles.css";
 import SvgIcon from "./SvgIcon";
 // import userImg from "./../images/user.svg";
 
-const JobCard = () => {
+const JobCard = (props) => {
 
     return(
         <div className="jobsApply__card">
@@ -13,7 +13,7 @@ const JobCard = () => {
             </div>
             <div className="jobsApply__card--details">
                 <div className="jobsApply__card--heading">
-                    <h3>Company Name</h3>
+                    <h3>{props.companyName}</h3>
                     <p>Apply Before : Wed May 26 2021</p>
                 </div>
                 <div className="jobsApply__card--desc">
