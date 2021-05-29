@@ -27,20 +27,20 @@
             
             // background-color: rgba(127, 212, 255,0.3);
             background: rgba( 255, 255, 255, 0.25 );
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
             backdrop-filter: blur( 4px );
             -webkit-backdrop-filter: blur( 4px );
-            border-radius: 10px;
-            border: 1px solid rgba( 255, 255, 255, 0.18 );
             
-            border-radius: 0.2rem;    
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            // border: 1px solid rgba( 255, 255, 255, 0.18 );
+            border-radius: 0.5rem;    
+            // box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
             
             // margin-right: 2rem;
 
             // flex-grow: 1;
             // flex: 2;
             width: 20rem;
+            margin: 1rem auto;
             // background-color: rgb(222, 117, 236);
             display: flex;
             flex-direction: column;
@@ -58,19 +58,21 @@
         &-2{
             
         // background-color: rgba(127, 212, 255,0.3);
-            border-radius: 0.2rem;
+            border-radius: 0.5rem;
             background: rgba( 255, 255, 255, 0.25 );
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
             backdrop-filter: blur( 4px );
             -webkit-backdrop-filter: blur( 4px );
-            border: 1px solid rgba( 255, 255, 255, 0.18 );
-            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            // border: 1px solid rgba( 255, 255, 255, 0.18 );
+            // box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
             
             // flex: 2;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             width: 45rem;
+            margin: 1rem auto;
+
             
             // background-color: rgb(130, 130, 243);
             padding: 1rem;

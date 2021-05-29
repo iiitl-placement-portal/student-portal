@@ -129,18 +129,18 @@ function Header(props) {
                 </li>
                 <li>
                   <Link
-                    to="/jobs-apply"
+                    to="/all-jobs"
                     className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                   >
-                    Jobs Apply
+                    All Jobs
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/job-applied"
+                    to="/applied-jobs"
                     className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                   >
-                    Jobs Applied
+                    Applied Jobs
                   </Link>
                 </li>
                 <li>

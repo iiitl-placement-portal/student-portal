@@ -6,6 +6,22 @@ import { Switch, Route, useLocation, Redirect,Link } from "react-router-dom";
 
 import "./css/styles.css";
 
+const applyForJob = async (id) => {
+    try {
+        const data = await fetch(`http://localhost:5000/jobs/${id}/apply`, {
+            method: "post",
+            headers: {
+                Authorization:
+                    "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+            },
+        }).then(val => val.json())
+        console.log(data);
+    }
+    catch (err) {
+        console.error("Error in applying for Job", err);
+    }
+}
+
 const JobProfile =  () =>{
     return(
         <div className="flex flex-col min-h-screen overflow-hidden">
@@ -38,9 +54,7 @@ const JobProfile =  () =>{
                         <div className="jobsProfile__header-button">
                             <ul className="flex flex-grow justify-end flex-wrap items-center">
                                 <li>
-                                <Link to="/login" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800">
-                                    <span>Apply Now</span>
-                                </Link>
+                                    <span><button onClick={applyForJob()}>Apply Now</button></span>
                                 </li>
                             </ul>
                         </div>
