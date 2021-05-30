@@ -22,19 +22,51 @@ const applyForJob = async (ret) => {
   }
 };
 
+
+async function getAllJobs(ret) {
+    try {
+        const data = await fetch(`http://localhost:5000/jobs/${ret}`, {
+        headers: {
+            Authorization:
+            "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        },
+        });
+        const retData = await data.json();
+        console.log("data", retData);
+        return retData;
+    } catch (err) {
+        console.error("Error in loading data from server", err);
+        return "error, please check console for details";
+    }
+}
+
 class JobProfile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { id: "" };
+//   constructor(props) {
+//     super(props);
+//     this.state = { id: "" };
+//   }
+
+  state = {
+      id:"",
+      JobData:{}
   }
 
   componentDidMount() {
     const url = window.location.pathname;
     const jobId = url.replace("/jobs/", "");
-    // this.setState({id:ret});
+    this.setState({id:jobId});
     this.setState({
       id: jobId,
     });
+
+    getAllJobs(jobId)
+      .then((res) => {
+        console.log(res);
+        this.setState({ JobData: res });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -51,7 +83,7 @@ class JobProfile extends Component {
               <div className="jobsProfile__header-img">
                 <SvgIcon src="banda.jpg" />
               </div>
-              <h3>Positin name</h3>
+              <h3>abx</h3>
               <p>Company name . complete location</p>
               <div className="jobsProfile__header-details">
                 <div>
