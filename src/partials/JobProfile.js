@@ -6,10 +6,28 @@ import { Switch, Route, useLocation, Redirect, Link } from "react-router-dom";
 
 import "./css/styles.css";
 
-const applyForJob = async (ret) => {
-  console.log("applying", ret);
+const getJobDetails = async (id) => {
   try {
-    const data = await fetch(`http://localhost:5000/jobs/${ret}/apply`, {
+    const data = await fetch(`http://localhost:5000/jobs/${id}`, {
+      method: "get",
+      headers: {
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+      },
+    }).then((val) => val.json());
+    data.companyName = data.company.companyName;
+
+    console.log("data", data);
+    return data;
+  } catch (err) {
+    console.error("Error in getting Job Details", err);
+  }
+};
+
+const applyForJob = async (id) => {
+  // console.log("applying", id);
+  try {
+    const data = await fetch(`http://localhost:5000/jobs/${id}/apply`, {
       method: "post",
       headers: {
         Authorization:
@@ -22,55 +40,29 @@ const applyForJob = async (ret) => {
   }
 };
 
-
-async function getAllJobs(ret) {
-    try {
-        const data = await fetch(`http://localhost:5000/jobs/${ret}`, {
-        headers: {
-            Authorization:
-            "Bearer " + JSON.parse(localStorage.getItem("token")).token,
-        },
-        });
-        const retData = await data.json();
-        console.log("data", retData);
-        return retData;
-    } catch (err) {
-        console.error("Error in loading data from server", err);
-        return "error, please check console for details";
-    }
-}
-
 class JobProfile extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { id: "" };
-//   }
-
-  state = {
-      id:"",
-      JobData:{}
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "",
+      jobDetails: {},
+    };
   }
 
   componentDidMount() {
     const url = window.location.pathname;
     const jobId = url.replace("/jobs/", "");
-    this.setState({id:jobId});
+    // this.setState({id:ret});
     this.setState({
       id: jobId,
     });
 
-    getAllJobs(jobId)
-      .then((res) => {
-        console.log(res);
-        this.setState({ JobData: res });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getJobDetails(jobId).then((val) => {
+      this.setState({ jobDetails: val });
+    });
   }
 
   render() {
-    // console.log(this.state.id,"inrenrder")
     return (
       <div className="flex flex-col min-h-screen overflow-hidden">
         {/*  Site header */}
@@ -83,20 +75,24 @@ class JobProfile extends Component {
               <div className="jobsProfile__header-img">
                 <SvgIcon src="banda.jpg" />
               </div>
-              <h3>abx</h3>
-              <p>Company name . complete location</p>
+              <h3>{this.state.jobDetails.jobDescription}</h3>
+              <p>
+                {this.state.jobDetails.companyName}
+                {", "}
+                {this.state.jobDetails.postingLocation}
+              </p>
               <div className="jobsProfile__header-details">
                 <div>
-                  <h6>Mini Heading</h6>
-                  <p>Lorem berste</p>
+                  <h6>Eligibility</h6>
+                  <p>You are NOT Eligible</p>
                 </div>
                 <div>
-                  <h6>Mini Heading</h6>
-                  <p>Lorem berste</p>
+                  <h6>Last date to Apply</h6>
+                  <p>{this.state.jobDetails.deadlineDate}</p>
                 </div>
                 <div>
-                  <h6>Mini Heading</h6>
-                  <p>Lorem berste</p>
+                  <h6>Only for Female candidates</h6>
+                  <p>{this.state.jobDetails.onlyForFemales}</p>
                 </div>
               </div>
               <div className="jobsProfile__header-button">
@@ -106,7 +102,9 @@ class JobProfile extends Component {
                       to="/home"
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
                     >
-                      <span onClick={() => applyForJob(this.state.id)}>Apply Now</span>
+                      <span onClick={() => applyForJob(this.state.id)}>
+                        Apply Now
+                      </span>
                     </Link>
                   </li>
                 </ul>
@@ -138,22 +136,11 @@ class JobProfile extends Component {
                   Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
                 </p>
               </div>
-              <div className="jobsProfile__main-para">
-                <h5>Qualification</h5>
-                <p>
-                  berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                  Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                  Koordination dieser Bestellung hinter den Kulissen wollen wir
-                  stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                  eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                  Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-                </p>
-              </div>
             </div>
 
             <div className="jobsProfile__footer">
               <h3 className="jobsProfile__footer-header">Pay Range</h3>
-              <p>Slaary info</p>
+              <p>{this.state.jobDetails.package}</p>
             </div>
           </main>
         </div>
