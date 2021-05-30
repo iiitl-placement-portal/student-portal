@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import JobCard from "../partials/JobCard";
-import JobProfile from "../partials/JobProfile";
-import { Switch, Route, useLocation, Redirect, Link } from "react-router-dom";
+// import JobProfile from "../partials/JobProfile";
+import { Link } from "react-router-dom";
 
 import "./css/styles.css";
 
@@ -45,14 +45,10 @@ class AllJobs extends Component {
 
   render() {
     const jobcard = this.state.AppliedJobs.map((val) => {
-      // console.log(it)
+      // console.log(val)
       return (
         <Link to={"/jobs/" + val._id}>
-          <JobCard
-            key={val._id}
-            companyName={val.companyName}
-            jobDescription={val.jobDescription}
-          />
+          <JobCard key={val._id} details={val} />
         </Link>
       );
     });
