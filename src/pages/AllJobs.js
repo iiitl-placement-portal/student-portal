@@ -49,7 +49,7 @@ class AllJobs extends Component {
     const jobcard = this.state.JobsAll.map((it) => {
       // console.log(it)
       return (
-        <Link to={"/jobs/" + it._id}>
+        <Link key={it.jobId} to={"/jobs/" + it._id}>
           <JobCard
             key={it.jobId}
             details={it}
