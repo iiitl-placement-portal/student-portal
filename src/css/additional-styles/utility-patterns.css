@@ -1,28 +1,28 @@
 .h1 {
-  @apply text-4xl font-extrabold leading-tight tracking-tighter;
+  @apply text-4xl leading-tight tracking-tighter;
 }
 
 .h2 {
-  @apply text-3xl font-extrabold leading-tight tracking-tighter;
+  @apply text-3xl leading-tight tracking-tighter;
 }
 
 .h3 {
-  @apply text-3xl font-bold leading-tight;
+  @apply text-3xl leading-tight;
 }
 
 .h4 {
-  @apply text-2xl font-bold leading-snug tracking-tight;
+  @apply text-2xl leading-snug tracking-tight;
 }
 
 @screen md {
   .h1 {
     @apply text-5xl;
   }
+
   .h2 {
     @apply text-4xl;
   }
 }
-
 .btn,
 .btn-sm {
   @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
@@ -73,4 +73,5 @@
 .form-radio {
   @apply text-gray-800 rounded-sm;
 }
+
 /*# sourceMappingURL=utility-patterns.css.map */

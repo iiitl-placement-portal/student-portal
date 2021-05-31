@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
+import SvgIcon from "../../partials/SvgIcon";
 
 async function loginUser(credentials) {
   let data = await fetch("http://localhost:5000/login", {
@@ -38,14 +39,18 @@ export default function Login({ setToken }) {
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+            <div className="pt-5 pb-12 md:pt-20 md:pb-20">
               {/* Page header */}
+              <div className="header-logo" style={{display:"flex", justifyContent:"center"}}>
+                <SvgIcon src="logo.png" />
+              </div>
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">Welcome back.</h1>
+                <h3 className="h4">Welcome back to</h3>
+                <h3 className="h3">Placement Portal IIIT Lucknow</h3>
               </div>
 
               {/* Form */}
-              <div className="max-w-sm mx-auto">
+              <div className="max-w-sm mx-auto pb-12 md:pb-20">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
@@ -102,6 +107,11 @@ export default function Login({ setToken }) {
                     </div>
                   </div>
                 </form>
+              </div>
+
+              <div className="max-w-sm mx-auto my-10 text-center pb-12 md:pb-20">
+                <h5>Brought to you by</h5>
+                <h4 className="h4">Automation Cell - DARG IIITL</h4>
               </div>
             </div>
           </div>
