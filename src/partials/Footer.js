@@ -24,11 +24,11 @@ function Footer() {
           </div>
 
           
-          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
+          <div className="sm:col-span-6 lg:col-span-3">
             <h6 className="text-gray-800 font-medium mb-2">Developers</h6>
             <ul className="text-sm">
               <li className="mb-2">
-                <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Automation cell</Link>
+                <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Automation cell - DARG</Link>
               </li>
               {/* <li className="mb-2">
                 <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Person B</Link>
@@ -46,12 +46,12 @@ function Footer() {
           </div>
 
           {/* 3rd block */}
-          <div className="sm:col-span-full md:col-span-3 lg:col-span-2">
+          <div className="sm:col-span-6 lg:col-span-3">
             <h6 className="text-gray-800 font-medium mb-2">IIIT Lucknow</h6>
             <ul className="text-sm ">
             {/* flex justify-between flex-wrap */}
               <li className="mb-2">
-                <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Home</Link>
+                <a href="https://iiitl.ac.in" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Home</a>
               </li>
               <li className="mb-2">
                 <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">About us</Link>
