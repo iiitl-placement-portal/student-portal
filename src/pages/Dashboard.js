@@ -25,12 +25,12 @@ class Dashboard extends Component {
                             <Profile />
                         </div>
                         <div className="dashboard__cunt-2">
-                            <div className="dashboard__notifi">
+                            {/* <div className="dashboard__notifi"> */}
                                 <Notification />
-                            </div>        
-                            <div className="dashboard__announce">
+                            {/* </div>         */}
+                            {/* <div className="dashboard__announce"> */}
                                 <Announcement />
-                            </div>
+                            {/* </div> */}
                         </div>
                     </main>
                 </div>

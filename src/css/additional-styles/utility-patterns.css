@@ -18,11 +18,11 @@
   .h1 {
     @apply text-5xl;
   }
-
   .h2 {
     @apply text-4xl;
   }
 }
+
 .btn,
 .btn-sm {
   @apply font-medium inline-flex items-center justify-center border border-transparent rounded leading-snug transition duration-150 ease-in-out;
@@ -73,5 +73,4 @@
 .form-radio {
   @apply text-gray-800 rounded-sm;
 }
-
 /*# sourceMappingURL=utility-patterns.css.map */
