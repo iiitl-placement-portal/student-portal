@@ -23,20 +23,19 @@
     }
 
     &__cunt-2{
-        display: flex;
-        // background: rgb(233, 122, 163);
-        justify-content: center;
-        flex-wrap: wrap;
         width: 100%;
-        padding: 0 auto;
-        margin: 0 auto;
+        // background: rgb(233, 122, 163);
+        display: flex;
+        justify-content: center;
         align-items: center;
-        margin-top: -2rem;
-        padding: 2rem;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+        // width: 100%;
+        // margin-top: -2rem;
+        // padding: 1rem;
 
-        align-content: center;
         &> div{
-            flex: 1;
+            // flex: 1;
         }
     }
 }

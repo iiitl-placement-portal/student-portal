@@ -1,13 +1,14 @@
-.header-logo img{
-  height: 6rem;
-}
-
-.header-logo{
+.header-logo {
   margin-top: 1rem !important;
 }
 
+.header-logo img {
+  height: 6rem;
+}
+
 .profile__card {
-  padding: 3rem;
+  background-color: #03A9F4;
+  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,6 +20,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin: 1rem auto;
 }
 
 .profile__img img {
@@ -27,14 +40,7 @@
 }
 
 .profile__cunt-1 {
-  background: rgba(255, 255, 255, 0.25);
-  -webkit-box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
-          box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 0.5rem;
-  width: 20rem;
-  margin: 1rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,11 +68,6 @@
 
 .profile__cunt-2 {
   border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.25);
-  -webkit-box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
-          box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.102);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,8 +78,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 45rem;
-  margin: 1rem auto;
   padding: 1rem;
 }
 
@@ -149,7 +148,8 @@
   border-radius: 0.2rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
           box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  padding: 1rem;
+  margin: 0.5rem;
+  padding: 0.3rem;
 }
 
 .notification__container {
@@ -159,6 +159,7 @@
 
 .notification__container > p {
   color: #454040;
+  background-color: rgba(231, 226, 226, 0.619);
   margin: 0.5rem;
   border-radius: 0.2rem;
   padding: 0.3rem 0.5rem;
@@ -169,6 +170,7 @@
 .notification__heading {
   font-size: 1.2rem;
   font-weight: 800;
+  padding: 0 0.8rem;
 }
 
 .jobsApply__card {
@@ -229,25 +231,41 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   margin: 1rem;
   margin-left: 0;
   width: 90%;
+  text-align: left;
 }
 
 .jobsApply__card--desc-field {
-  width: 43%;
+  width: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0.2rem;
+}
+
+.jobsApply__card--desc-field > div {
+  margin-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0.2rem;
 }
 
 .jobsApply__card--desc-field img {
@@ -266,8 +284,8 @@
 }
 
 .jobsApply__card:hover {
-  -webkit-transform: scale(1.04);
-          transform: scale(1.04);
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 .jobsProfile__section {

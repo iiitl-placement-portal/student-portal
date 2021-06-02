@@ -3,7 +3,7 @@ import Header from "./../partials/Header";
 import Footer from "./../partials/Footer";
 import SvgIcon from "./SvgIcon";
 import { Switch, Route, useLocation, Redirect, Link } from "react-router-dom";
-
+import moment from "moment";
 import "./css/styles.css";
 
 const getJobDetails = async (id) => {
@@ -17,7 +17,10 @@ const getJobDetails = async (id) => {
     }).then((val) => val.json());
     data.companyName = data.company.companyName;
 
-    console.log("data", data);
+    // console.log("data", data);
+    
+    // console.log()
+    // console.log(data.deadlineDate);
     return data;
   } catch (err) {
     console.error("Error in getting Job Details", err);
@@ -35,6 +38,7 @@ const applyForJob = async (id) => {
       },
     }).then((val) => val.json());
     // console.log(data);
+    
   } catch (err) {
     console.error("Error in applying for Job", err);
   }
@@ -46,6 +50,8 @@ class JobProfile extends Component {
     this.state = {
       id: "",
       jobDetails: {},
+      isEligible:Math.floor(Math.random() * 2),
+      isApplied:Math.floor(Math.random() * 2)
     };
   }
 
@@ -63,6 +69,8 @@ class JobProfile extends Component {
   }
 
   render() {
+
+
     return (
       <div className="flex flex-col min-h-screen overflow-hidden">
         {/*  Site header */}
@@ -84,11 +92,11 @@ class JobProfile extends Component {
               <div className="jobsProfile__header-details">
                 <div>
                   <h6>Eligibility</h6>
-                  <p>You are NOT Eligible</p>
+                  <p>{this.state.isEligible ? "You are Eligible" : "You are Not Eligible"}</p>
                 </div>
                 <div>
                   <h6>Last date to Apply</h6>
-                  <p>{this.state.jobDetails.deadlineDate}</p>
+                  <p>{moment(this.state.jobDetails.deadlineDate).format("DD-MM-YYYY hh:mm A")}</p>
                 </div>
                 <div>
                   <h6>Only for Female candidates</h6>
@@ -103,7 +111,7 @@ class JobProfile extends Component {
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
                     >
                       <span onClick={() => applyForJob(this.state.id)}>
-                        Apply Now
+                        {this.state.isEligible ? (this.state.isApplied ? "Applied" :"Apply") : "Not Eligible" }
                       </span>
                     </Link>
                   </li>
@@ -112,10 +120,21 @@ class JobProfile extends Component {
             </div>
             <div className="jobsProfile__main">
               <div className="jobsProfile__main-heading">
-                <h3>ABout the job</h3>
+                <h3>About the job</h3>
               </div>
               <div className="jobsProfile__main-para">
                 <h5>Description</h5>
+                <p>
+                  berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                  Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                  Koordination dieser Bestellung hinter den Kulissen wollen wir
+                  stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                  eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                  Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
+                </p>
+              </div>
+              <div className="jobsProfile__main-para">
+                <h5>Qualitfication Needed</h5>
                 <p>
                   berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
                   Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen

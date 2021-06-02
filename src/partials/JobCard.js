@@ -4,7 +4,7 @@ import SvgIcon from "./SvgIcon";
 // import userImg from "./../images/user.svg";
 
 const JobCard = (props) => {
-  // console.log(props)
+  // console.log(props.details)
   return (
     <div className="jobsApply__card">
       <div className="jobsApply__card--img">
@@ -13,7 +13,7 @@ const JobCard = (props) => {
       </div>
       <div className="jobsApply__card--details">
         <div className="jobsApply__card--heading">
-          <h3>{props.details.jobId}</h3>
+          <h3>{props.details.companyName}</h3>
           <p>Apply Before : {props.details.deadlineDate}</p>
         </div>
         <div className="jobsApply__card--desc">
@@ -28,7 +28,7 @@ const JobCard = (props) => {
             <SvgIcon src="location.svg" />
             <div className="">
               <p>Location</p>
-              <h4>{props.details.postingLocation}</h4>
+              <h4>abc{props.details.postingLocation}</h4>
             </div>
           </div>
           <div className="jobsApply__card--desc-field">
