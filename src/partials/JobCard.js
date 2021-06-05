@@ -1,6 +1,10 @@
-import React, { Component, Profiler } from "react";
+import React, {
+    Component,
+    Profiler } from "react";
 import "./css/styles.css";
+import moment from "moment";
 import SvgIcon from "./SvgIcon";
+
 // import userImg from "./../images/user.svg";
 
 const JobCard = (props) => {
@@ -13,8 +17,8 @@ const JobCard = (props) => {
       </div>
       <div className="jobsApply__card--details">
         <div className="jobsApply__card--heading">
-          <h3>{props.details.companyName}</h3>
-          <p>Apply Before : {props.details.deadlineDate}</p>
+          <h3>{props.details.companyName}Company Name</h3>
+          <p>Apply Before : {moment(props.details.deadlineDate).format("DD-MM-YYYY hh:mm A")}</p>
         </div>
         <div className="jobsApply__card--desc">
           <div className="jobsApply__card--desc-field">

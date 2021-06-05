@@ -8,13 +8,15 @@ import AOS from "aos";
 import { focusHandling } from "cruip-js-toolkit";
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import AddJob from "./pages/AddJob";
 import AllJobs from "./pages/AllJobs";
-import AppliedJobs from "./pages/AppliedJobs";
+import Dashboard from "./pages/Dashboard";
+import AddCompany from "./pages/AddCompany";
 import Login from "./components/Login/Login";
+import AppliedJobs from "./pages/AppliedJobs";
 import Logout from "./components/Login/Logout";
-import ResetPassword from "./pages/ResetPassword";
 import JobProfile from "./partials/JobProfile";
+import ResetPassword from "./pages/ResetPassword";
 
 import useToken from "./components/App/useToken";
 
@@ -68,6 +70,13 @@ function App() {
         </Route>
         <Route exact path="/applied-jobs">
           <AppliedJobs title="Applied Jobs" />
+        </Route>
+        <Route exact path="/add-job">
+          <AddJob />
+        </Route>
+        
+        <Route exact path="/add-company">
+          <AddCompany />
         </Route>
         <Route exact path="/profile">
           
