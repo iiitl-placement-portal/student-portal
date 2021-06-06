@@ -17,7 +17,7 @@ const JobCard = (props) => {
       </div>
       <div className="jobsApply__card--details">
         <div className="jobsApply__card--heading">
-          <h3>{props.details.companyName}Company Name</h3>
+          <h3>{props.details.company.companyName}</h3>
           <p>Apply Before : {moment(props.details.deadlineDate).format("DD-MM-YYYY hh:mm A")}</p>
         </div>
         <div className="jobsApply__card--desc">
