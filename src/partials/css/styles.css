@@ -73,14 +73,6 @@
   overflow-y: scroll;
   border-radius: 0.5rem;
 }
-.notification__container > p {
-  color: #3a3737;
-  background-color: white;
-  margin: 0.7rem 1.2rem;
-  border-radius: 0.5rem;
-  padding: 0.4rem 0.2rem 0.4rem 0.8rem;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
 .notification__heading {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -116,78 +108,88 @@
   width: 7%;
 }
 
-.jobsApply__card {
-  display: flex;
-  margin: 1rem;
-  padding: 0.2rem;
-  width: 25rem;
-  height: 12rem;
+.job__card {
+  background-color: #fafafa;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 3px 0px, rgba(27, 31, 35, 0.15) 0px 3px 5px -1px;
+  width: 470px;
+  height: 230px;
+  margin: 1rem 10px;
+  border-radius: 1rem;
   overflow: hidden;
-  background-color: #69d3d3;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 0.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: all 0.3s;
-}
-.jobsApply__card--img {
-  flex: 1;
-}
-.jobsApply__card--img img {
-  height: 5rem;
-}
-.jobsApply__card--details {
-  flex: 3;
-}
-.jobsApply__card--heading h3 {
-  color: #5d5d5d;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-.jobsApply__card--heading p {
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #6e6a6a;
-}
-.jobsApply__card--desc {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 1rem;
-  margin-left: 0;
-  width: 90%;
-  text-align: left;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #464646;
 }
-.jobsApply__card--desc-field {
-  width: 45%;
+.job__card__section-1 {
+  width: 33%;
+  background-color: #dbdbdb;
+  padding: 1rem;
+}
+.job__card__section-1 .company-logo-container {
+  height: 70%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin: 0.2rem;
 }
-.jobsApply__card--desc-field > div {
-  margin-left: 1rem;
+.job__card__section-1 .company-logo-container .company-logo {
+  max-width: 100%;
+}
+.job__card__section-1 .company-name-container {
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.jobsApply__card--desc-field img {
-  height: 1.8rem;
+.job__card__section-1 .company-name-container h3 {
+  font-size: 16px;
+  font-weight: 600;
 }
-.jobsApply__card--desc-field p {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: gray;
+.job__card__section-2 {
+  width: 67%;
+  padding: 1.1rem;
 }
-.jobsApply__card--desc-field h4 {
-  font-size: 1.1rem;
-  color: hotpink;
+.job__card__section-2 .company-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 85%;
 }
-.jobsApply__card:hover {
-  transform: scale(1.01);
+.job__card__section-2 .company-details-container .company-details {
+  width: 49%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 16px;
+}
+.job__card__section-2 .company-details-container .company-details h3 {
+  color: #1a5f99;
+  font-weight: 600;
+}
+.job__card__section-2 .company-details-container .company-details .fa-icon {
+  color: dimgray;
+  font-size: large;
+}
+.job__card__section-2 .company-details-container .company-details p {
+  color: dimgray;
+}
+.job__card__section-2 .apply-before-container {
+  margin-top: 3px;
+  font-size: 16px;
+}
+.job__card__section-2 .apply-before-container span {
+  color: #1a5f99;
+  font-weight: 600;
+}
+.job__card:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 4px 3px 0px, rgba(27, 31, 35, 0.15) 0px 8px 5px -1px;
 }
 
 .jobsProfile__section {

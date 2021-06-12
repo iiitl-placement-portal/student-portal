@@ -45,7 +45,9 @@ class AllJobs extends Component {
 
   render() {
     const jobcard = this.state.AppliedJobs.map((val) => {
-      // console.log(val)
+      console.log(val)
+      // let val = value.toObject();
+      val.deadlineDate = "Applied";
       return (
         <Link to={"/jobs/" + val._id}>
           <JobCard key={val._id} details={val} />
