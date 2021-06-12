@@ -1,36 +1,21 @@
 .dashboard__section {
   background-color: #efefef;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23e5e5e5' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b3b3b3' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23dfdfdf' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23afafaf' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9d9d9' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23acacac' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3d3d3' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23a8a8a8' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23cdcdcd' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23a5a5a5' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23c7c7c7' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23a1a1a1' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
-
 .dashboard__container {
-  margin: 5rem auto;
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin: 7rem auto 2rem;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
-
 .dashboard__cunt-2 {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin-top: 1rem;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .jobsApply__section {
@@ -39,29 +24,19 @@
   margin: 0 auto;
   text-align: center;
 }
-
 .jobsApply__section-heading {
   text-transform: uppercase;
   margin: 6rem auto 4rem auto;
   font-size: 2rem;
   font-weight: 700;
-  -webkit-transform: scale(1.2, 1);
-          transform: scale(1.2, 1);
+  transform: scale(1.2, 1);
 }
-
 .jobsApply__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-between;
   width: 87%;
   margin: 0 auto;
 }
@@ -70,18 +45,15 @@
   margin: 0 auto;
   background-image: linear-gradient(135deg, transparent 0%, transparent 17%, rgba(87, 146, 234, 0.21) 17%, rgba(87, 146, 234, 0.21) 59%, transparent 59%, transparent 64%, rgba(149, 170, 236, 0.29) 64%, rgba(149, 170, 236, 0.29) 100%), linear-gradient(45deg, transparent 0%, transparent 2%, rgba(189, 221, 255, 0.47) 2%, rgba(189, 221, 255, 0.47) 46%, rgba(114, 178, 239, 0.27) 46%, rgba(114, 178, 239, 0.27) 54%, transparent 54%, transparent 63%, rgba(170, 186, 248, 0.29) 63%, rgba(170, 186, 248, 0.29) 100%), linear-gradient(90deg, white, white);
 }
-
 .AddJob__section-heading {
   text-transform: uppercase;
   margin: 1rem auto;
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  -webkit-transform: scale(1.2, 1);
-          transform: scale(1.2, 1);
+  transform: scale(1.2, 1);
   margin-top: 5rem;
 }
-
 .AddJob__section-para {
   color: slategrey;
   text-transform: uppercase;
@@ -89,16 +61,13 @@
   text-align: center;
   font-weight: 700;
 }
-
 .AddJob__section-para sup {
   color: red;
   font-size: 1rem;
 }
-
 .AddJob__container {
   background: rgba(255, 255, 255, 0.25);
-  -webkit-box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 5px;
@@ -106,45 +75,29 @@
   width: 80%;
   margin: 3rem auto;
 }
-
 .AddJob__form > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 0.5rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .AddJob__form > div > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin: 1rem auto;
 }
-
 .AddJob__form > div > div label {
   font-size: 1.2rem;
   color: #404040;
   font-weight: 500;
   text-transform: capitalize;
 }
-
 .AddJob__form > div > div label sup {
   color: red;
 }
-
-.AddJob__form > div input, .AddJob__form > div textarea {
+.AddJob__form > div input,
+.AddJob__form > div textarea {
   width: 20rem;
   height: 3rem;
   font-size: 1.1rem;
@@ -153,52 +106,50 @@
   background-color: transparent;
   border-bottom: 2px solid #848484;
 }
-
 .AddJob__form-text {
   margin-left: 2rem;
 }
-
 .AddJob__form-text textarea {
   outline: none !important;
   word-wrap: wrap;
   height: 10rem !important;
   width: 50rem !important;
 }
-
 .AddJob__form-file input {
   border: none !important;
   margin: 0.5rem;
 }
-
 .AddJob__form-checkbox {
   width: 20rem;
 }
-
 .AddJob__form-checkbox label {
   margin: 0.3rem 0;
 }
-
 .AddJob__form-checkbox label sup {
   color: red;
 }
-
 .AddJob__form-checkbox input {
   margin: 0.3rem 1rem !important;
   border: 1px solid slategrey !important;
   height: 2rem !important;
   width: 2rem !important;
 }
-
 .AddJob__submit {
   color: white;
   font-size: 1.2rem;
   text-transform: uppercase;
   background-color: #0371ee;
   margin: 2rem 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   height: 3rem;
   width: 10rem;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1198px) {
+  .dashboard__cunt-2 {
+    flex-direction: column-reverse;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

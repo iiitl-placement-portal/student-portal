@@ -1,5 +1,7 @@
-import React, { Component, Profiler } from "react";
+import React from "react";
+import SvgIcon from "./SvgIcon";
 import "./css/styles.css";
+import NotificationCard from "./NotificationCards";
 
 const geeAnnouncements = async () => {
   const data = await fetch("http://localhost:5000/announcement", {
@@ -8,7 +10,7 @@ const geeAnnouncements = async () => {
         "Bearer " + JSON.parse(localStorage.getItem("token")).token,
     },
   }).then((val) => val.json());
-//   console.log(data);
+  // console.log(data);
   return data;
 };
 
@@ -29,12 +31,22 @@ class Announcement extends React.Component {
       });
   }
   render() {
-    const allAnnouncements = this.state.announcements.map((val) => {
-      return <p>{val.message}</p>;
+    const allAnnouncements = this.state.announcements.reverse().map((val) => {
+      const date = new Date();
+      date.setDate(date.getDate() - 2);
+
+      const announcementDate = new Date(val.date_announced);
+      return (
+        <NotificationCard
+          message={val.message}
+          imgSrc={announcementDate > date ? "new.svg" : ""}
+          title="New Announcement"
+        />
+      );
     });
     return (
       <div className="notification__section">
-        <h3 className="notification__heading">Announcements</h3>
+        <h3 className="notification__heading">All Public Announcements</h3>
         <div className="notification__container">{allAnnouncements}</div>
       </div>
     );

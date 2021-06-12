@@ -1,6 +1,4 @@
-import React, {
-    Component,
-    Profiler } from "react";
+import React from "react";
 import "./css/styles.css";
 import moment from "moment";
 import SvgIcon from "./SvgIcon";
@@ -32,7 +30,7 @@ const JobCard = (props) => {
             <SvgIcon src="location.svg" />
             <div className="">
               <p>Location</p>
-              <h4>abc{props.details.postingLocation}</h4>
+              <h4>{props.details.postingLocation}</h4>
             </div>
           </div>
           <div className="jobsApply__card--desc-field">

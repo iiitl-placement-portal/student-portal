@@ -50,8 +50,6 @@ class JobProfile extends Component {
     this.state = {
       id: "",
       jobDetails: {},
-      isEligible:Math.floor(Math.random() * 2),
-      isApplied:Math.floor(Math.random() * 2)
     };
   }
 
@@ -92,7 +90,7 @@ class JobProfile extends Component {
               <div className="jobsProfile__header-details">
                 <div>
                   <h6>Eligibility</h6>
-                  <p>{this.state.isEligible ? "You are Eligible" : "You are Not Eligible"}</p>
+                  <p>{this.state.jobDetails.isStudentEligible ? "You are Eligible" : "You are Not Eligible"}</p>
                 </div>
                 <div>
                   <h6>Last date to Apply</h6>

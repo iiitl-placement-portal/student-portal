@@ -14,7 +14,7 @@ const Input = ({ name, type, label, register, required }) => {
     console.log(num);
     // const numt= num;
     let clas = "";
-    if(label=="description" || label=="qualificationNeeded" || label=="role"  ){
+    if(label==="description" || label==="qualificationNeeded" || label==="role"  ){
         clas="AddJob__form-text"
         
         return(
@@ -24,7 +24,7 @@ const Input = ({ name, type, label, register, required }) => {
             </div>
         )
     }else{
-        if(type=="checkbox") clas="AddJob__form-checkbox"
+        if(type==="checkbox") clas="AddJob__form-checkbox"
         return(
             <div className={clas}>
                 <label>{num/2}. {name}{required ? <sup>*</sup> : <sup></sup>}</label>
