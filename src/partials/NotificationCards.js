@@ -3,16 +3,60 @@ import "./css/styles.css";
 import SvgIcon from "./SvgIcon";
 
 const readHandler = async (props) => {
-  //   post request to readNotification api
-  alert("Read");
+  try {
+    //   post request to readNotification api
+    // alert("r")
+    // alert(iat);
+    const req = { iat: props.iat };
+    // console.log(req);
+    const data = await fetch("http://localhost:5000/markAsRead", {
+      headers: {
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
+      },
+      method: "post",
+      body: JSON.stringify(req),
+    }).then((val) => val.json());
+    // console.log(data);
+
+    props.reRender();
+
+    return { status: "MarkedRead", data };
+  } catch (err) {
+    console.error(err);
+    return { status: "failed" };
+  }
 };
 
 const deleteHandler = async (props) => {
-  //   post request to deleteNotification api
-  alert("delete");
+  try {
+    //   post request to deleteNotification api
+    // alert("d")
+    // alert(iat);
+    const req = { iat: props.iat };
+    // console.log(req);
+    const data = await fetch("http://localhost:5000/deleteNotification", {
+      headers: {
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
+      },
+      method: "post",
+      body: JSON.stringify(req),
+    }).then((val) => val.json());
+    // console.log(data);
+
+    props.reRender();
+
+    return { status: "Deleted", data };
+  } catch (err) {
+    console.error(err);
+    return { status: "failed" };
+  }
 };
 
-const nullHandler = async (props) => {
+const nullHandler = async () => {
   //   alert("Nothing");
   return true;
 };
@@ -36,10 +80,11 @@ const NotificationCard = (props) => {
       <div
         className="notification-card-section-2"
         onClick={() => {
-          onClickFun();
+          // alert(props.iat);
+          onClickFun(props);
         }}
         style={{ cursor: props.cursor }}
-        title={props.title  }
+        title={props.title}
       >
         {props.imgSrc ? <SvgIcon src={props.imgSrc} classname="new-svg" /> : ""}
       </div>

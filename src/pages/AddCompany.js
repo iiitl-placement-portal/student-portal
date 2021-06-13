@@ -1,4 +1,4 @@
-import React ,{Component} from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import Header from "./../partials/Header";
 import Footer from "./../partials/Footer";

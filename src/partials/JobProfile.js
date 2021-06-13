@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./../partials/Header";
 import Footer from "./../partials/Footer";
 import SvgIcon from "./SvgIcon";
-import { Switch, Route, useLocation, Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import moment from "moment";
 import "./css/styles.css";
 
@@ -18,7 +18,7 @@ const getJobDetails = async (id) => {
     data.companyName = data.company.companyName;
 
     // console.log("data", data);
-    
+
     // console.log()
     // console.log(data.deadlineDate);
     return data;
@@ -38,7 +38,7 @@ const applyForJob = async (id) => {
       },
     }).then((val) => val.json());
     // console.log(data);
-    
+    return data;
   } catch (err) {
     console.error("Error in applying for Job", err);
   }
@@ -67,8 +67,6 @@ class JobProfile extends Component {
   }
 
   render() {
-
-
     return (
       <div className="flex flex-col min-h-screen overflow-hidden">
         {/*  Site header */}
@@ -90,11 +88,19 @@ class JobProfile extends Component {
               <div className="jobsProfile__header-details">
                 <div>
                   <h6>Eligibility</h6>
-                  <p>{this.state.jobDetails.isStudentEligible ? "You are Eligible" : "You are Not Eligible"}</p>
+                  <p>
+                    {this.state.jobDetails.isStudentEligible
+                      ? "You are Eligible"
+                      : "You are Not Eligible"}
+                  </p>
                 </div>
                 <div>
                   <h6>Last date to Apply</h6>
-                  <p>{moment(this.state.jobDetails.deadlineDate).format("DD-MM-YYYY hh:mm A")}</p>
+                  <p>
+                    {moment(this.state.jobDetails.deadlineDate).format(
+                      "DD-MM-YYYY hh:mm A"
+                    )}
+                  </p>
                 </div>
                 <div>
                   <h6>Only for Female candidates</h6>
@@ -109,7 +115,11 @@ class JobProfile extends Component {
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
                     >
                       <span onClick={() => applyForJob(this.state.id)}>
-                        {this.state.isEligible ? (this.state.isApplied ? "Applied" :"Apply") : "Not Eligible" }
+                        {this.state.isEligible
+                          ? this.state.isApplied
+                            ? "Applied"
+                            : "Apply"
+                          : "Not Eligible"}
                       </span>
                     </Link>
                   </li>

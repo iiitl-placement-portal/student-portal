@@ -67,6 +67,7 @@ class Profile extends React.Component {
               className="mx-3"
               title="LinkedIn"
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
@@ -75,6 +76,7 @@ class Profile extends React.Component {
               className="mx-3"
               title="Resume"
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faFileAlt} />
             </a>

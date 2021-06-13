@@ -1,5 +1,4 @@
 import React from "react";
-import SvgIcon from "./SvgIcon";
 import "./css/styles.css";
 import NotificationCard from "./NotificationCards";
 
@@ -41,6 +40,7 @@ class Announcement extends React.Component {
           message={val.message}
           imgSrc={announcementDate > date ? "new.svg" : ""}
           title="New Announcement"
+          key={val.date_announced}
         />
       );
     });

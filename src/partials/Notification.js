@@ -2,39 +2,19 @@ import React from "react";
 import NotificationCard from "./NotificationCards";
 import "./css/styles.css";
 
-const newNotification = [
-  "Dummy1",
-  "Dummy2",
-  "Dummy3",
-  "Dummy4",
-  "Dummy5",
-  "Dummy6",
-  "Dummy7",
-  "Dummy8",
-];
-const readNotification = [
-  "Dummy 11",
-  "Dummy 21",
-  "Dummy 31",
-  "Dummy 41",
-  "Dummy 51",
-  "Dummy 61",
-  "Dummy 71",
-  "Dummy 81",
-];
-
-const getNewNotification = async () => {
+const getNotification = async () => {
   const data = await fetch("http://localhost:5000/profile", {
     headers: {
       Authorization:
         "Bearer " + JSON.parse(localStorage.getItem("token")).token,
     },
   }).then((val) => val.json());
-  const notification = data.notification;
-  //   console.log(notification);
+  const unreadNotification = data.notification;
+  const readNotifications = data.readNotifications;
+  // console.log(unreadNotification);
   return {
-    newNotification,
-    readNotification,
+    unreadNotification,
+    readNotifications,
   };
 };
 
@@ -42,49 +22,65 @@ class Notification extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notifications: {
-        newNotification: [],
-        readNotification: [],
-      },
+      unreadNotifications: [],
+      readNotifications: [],
     };
+    this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
   }
   componentDidMount() {
-    getNewNotification()
+    getNotification()
       .then((val) => {
-        // console.log(val);
-        this.setState({ notifications: val });
+        this.setState({
+          unreadNotifications: val.unreadNotification,
+          readNotifications: val.readNotifications,
+        });
+      })
+      .catch((err) => {
+        console.error("Error in notification", err);
+      });
+  }
+  rerenderParentCallback() {
+    // alert("rerender");
+    getNotification()
+      .then((val) => {
+        this.setState({
+          unreadNotifications: val.unreadNotification,
+          readNotifications: val.readNotifications,
+        });
       })
       .catch((err) => {
         console.error("Error in notification", err);
       });
   }
   render() {
-    const newNotifications = this.state.notifications.newNotification.map(
-      (val) => {
-        return (
-          <NotificationCard
-            message={val}
-            imgSrc="check.svg"
-            onClick="read"
-            cursor="pointer"
-            title="Mark as Read"
-          />
-        );
-      }
-    );
-    const allReadNotifications = this.state.notifications.readNotification.map(
-      (val) => {
-        return (
-          <NotificationCard
-            message={val}
-            imgSrc="close.svg"
-            onClick="delete"
-            cursor="pointer"
-            title="Delete Notification"
-          />
-        );
-      }
-    );
+    const newNotifications = this.state.unreadNotifications.map((val) => {
+      return (
+        <NotificationCard
+          message={val.message}
+          imgSrc="check.svg"
+          onClick="read"
+          cursor="pointer"
+          title="Mark as Read"
+          iat={val.iat}
+          key={val.iat}
+          reRender={this.rerenderParentCallback}
+        />
+      );
+    });
+    const allReadNotifications = this.state.readNotifications.map((val) => {
+      return (
+        <NotificationCard
+          message={val.message}
+          imgSrc="close.svg"
+          iat={val.iat}
+          key={val.iat}
+          onClick="delete"
+          cursor="pointer"
+          title="Delete Notification"
+          reRender={this.rerenderParentCallback}
+        />
+      );
+    });
     const allNotifications = newNotifications.concat(allReadNotifications);
     return (
       <div className="notification__section">

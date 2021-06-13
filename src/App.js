@@ -7,7 +7,7 @@ import "./css/style.scss";
 import AOS from "aos";
 import { focusHandling } from "cruip-js-toolkit";
 
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import AddJob from "./pages/AddJob";
 import AllJobs from "./pages/AllJobs";
 import Dashboard from "./pages/Dashboard";
