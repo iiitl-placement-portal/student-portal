@@ -15,12 +15,9 @@ const getJobDetails = async (id) => {
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
     }).then((val) => val.json());
-    data.companyName = data.company.companyName;
 
-    // console.log("data", data);
+    console.log("data", data);
 
-    // console.log()
-    // console.log(data.deadlineDate);
     return data;
   } catch (err) {
     console.error("Error in getting Job Details", err);
@@ -49,7 +46,7 @@ class JobProfile extends Component {
     super(props);
     this.state = {
       id: "",
-      jobDetails: {},
+      jobDetails: { company: {} },
     };
   }
 
@@ -81,7 +78,7 @@ class JobProfile extends Component {
               </div>
               <h3>{this.state.jobDetails.jobDescription}</h3>
               <p>
-                {this.state.jobDetails.companyName}
+                {this.state.jobDetails.company.companyName}
                 {", "}
                 {this.state.jobDetails.postingLocation}
               </p>
@@ -89,9 +86,15 @@ class JobProfile extends Component {
                 <div>
                   <h6>Eligibility</h6>
                   <p>
-                    {this.state.jobDetails.isStudentEligible
-                      ? "You are Eligible"
-                      : "You are Not Eligible"}
+                    {this.state.jobDetails.isStudentEligible ? (
+                      "You are Eligible"
+                    ) : (
+                      <span>
+                        Not Eligible due to
+                        <br />
+                        {this.state.jobDetails.inEligibilityReason}
+                      </span>
+                    )}
                   </p>
                 </div>
                 <div>
@@ -103,28 +106,35 @@ class JobProfile extends Component {
                   </p>
                 </div>
                 <div>
-                  <h6>Only for Female candidates</h6>
-                  <p>{this.state.jobDetails.onlyForFemales}</p>
+                  <p>
+                    {this.state.jobDetails.onlyForFemales ? (
+                      <span className="btn-sm text-gray-100 bg-blue-900">
+                        Only for Female Category
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </p>
                 </div>
               </div>
-              <div className="jobsProfile__header-button">
-                <ul className="flex flex-grow justify-end flex-wrap items-center">
-                  <li>
-                    <Link
-                      to="/home"
-                      className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
-                    >
-                      <span onClick={() => applyForJob(this.state.id)}>
-                        {this.state.isEligible
-                          ? this.state.isApplied
-                            ? "Applied"
-                            : "Apply"
-                          : "Not Eligible"}
-                      </span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              {this.state.jobDetails.isStudentEligible ? (
+                <div className="jobsProfile__header-button">
+                  <ul className="flex flex-grow justify-end flex-wrap items-center">
+                    <li>
+                      <Link
+                        to="/home"
+                        className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
+                      >
+                        <span onClick={() => applyForJob(this.state.id)}>
+                          Apply
+                        </span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="jobsProfile__main">
               <div className="jobsProfile__main-heading">
