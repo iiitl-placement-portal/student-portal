@@ -16,9 +16,11 @@ import Login from "./components/Login/Login";
 import AppliedJobs from "./pages/AppliedJobs";
 import Logout from "./components/Login/Logout";
 import JobProfile from "./partials/JobProfile";
+import DashboardTpo from "./pages/DashboardTpo";
 import ResetPassword from "./pages/ResetPassword";
 
 import useToken from "./components/App/useToken";
+import AllCompany from "./pages/AllCompany";
 
 function App() {
   const location = useLocation();
@@ -89,6 +91,15 @@ function App() {
         </Route>
         <Route path="/reset-password">
           <ResetPassword />
+        </Route>
+        {/* ///////////////////TPO///////////////////////// */}
+        
+        <Route exact path="/dashboard">
+          <DashboardTpo />
+        </Route>
+        
+        <Route exact path="/all-company">
+          <AllCompany />
         </Route>
       </Switch>
     </>

@@ -429,3 +429,22 @@
     }
   }
 }
+
+
+.company__buttons{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  // background-color: rgb(255, 167, 167);
+
+  & h4{
+    background-color: rgb(135, 243, 138);
+    padding: 0.2rem 0.5rem;
+    font-weight: 500;
+    border-radius: 5px;    
+  }
+
+  &-red{
+    background-color: salmon !important;
+  }
+}

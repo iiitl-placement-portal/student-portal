@@ -332,5 +332,19 @@
     width: 500px;
   }
 }
+.company__buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.company__buttons h4 {
+  background-color: #87f38a;
+  padding: 0.2rem 0.5rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.company__buttons-red {
+  background-color: salmon !important;
+}
 
 /*# sourceMappingURL=styles.css.map */
