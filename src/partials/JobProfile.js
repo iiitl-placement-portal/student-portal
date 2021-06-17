@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
+import moment from "moment";
+
 import Header from "./../partials/Header";
 import Footer from "./../partials/Footer";
 import SvgIcon from "./SvgIcon";
-import { Link } from "react-router-dom";
-import moment from "moment";
 import "./css/styles.css";
 
 const getJobDetails = async (id) => {
@@ -69,118 +72,133 @@ class JobProfile extends Component {
         {/*  Site header */}
         <Header type="dashboard" />
 
-        {/*  Page content */}
-        <div className="jobsProfile__section">
-          <main className="jobsProfile__container flex-grow">
-            <div className="jobsProfile__header">
-              <div className="jobsProfile__header-img">
-                <SvgIcon src="banda.jpg" />
-              </div>
-              <h3>{this.state.jobDetails.jobDescription}</h3>
-              <p>
-                {this.state.jobDetails.company.companyName}
-                {", "}
-                {this.state.jobDetails.postingLocation}
+        <div className="jobProfile">
+          <div className="jobProfile__section-1">
+            <div className="company-image-container">
+              <SvgIcon src="logo.png" classname="company-logo" />
+            </div>
+            <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+            <div className="company-details-container">
+              <p className="company-name">
+                <a
+                  href={this.state.jobDetails.company.companyWebsite}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {this.state.jobDetails.company.companyName}
+
+                  <FontAwesomeIcon
+                    icon={faArrowAltCircleRight}
+                    className="ml-2 website-arrow-icon"
+                  />
+                </a>
               </p>
-              <div className="jobsProfile__header-details">
-                <div>
-                  <h6>Eligibility</h6>
-                  <p>
-                    {this.state.jobDetails.isStudentEligible ? (
-                      "You are Eligible"
-                    ) : (
-                      <span>
-                        Not Eligible due to
-                        <br />
-                        {this.state.jobDetails.inEligibilityReason}
-                      </span>
-                    )}
-                  </p>
-                </div>
-                <div>
-                  <h6>Last date to Apply</h6>
-                  <p>
-                    {moment(this.state.jobDetails.deadlineDate).format(
-                      "DD-MM-YYYY hh:mm A"
-                    )}
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    {this.state.jobDetails.onlyForFemales ? (
-                      <span className="btn-sm text-gray-100 bg-blue-900">
-                        Only for Female Category
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </p>
-                </div>
-              </div>
+              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+              <p className="company-sector">
+                {this.state.jobDetails.company.companySector}
+                IT Company
+              </p>
+              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+              <p className="company-headquarters">
+                {this.state.jobDetails.company.companyHeadquarters}
+                <span className="description-titles">
+                  Company Headquarters :
+                </span>{" "}
+                Choclate State, Dairy building, Silicon valley, New York 200001.
+              </p>
+            </div>
+          </div>
+          <div className="jobProfile__section-2">
+            <p className="job-id">{this.state.jobDetails.jobId}</p>
+            <br />
+            <div className="job-description">
+              <p>
+                <span className="description-titles">Job Description : </span>
+                {this.state.jobDetails.jobDescription}
+              </p>
+              <p>
+                <span className="description-titles">Expected Skills : </span>
+                {this.state.jobDetails.qualifications}
+                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                Koordination dieser Bestellung hinter den Kulissen wollen wir
+                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
+              </p>
+              <p>
+                <span className="description-titles">
+                  Your role as {this.state.jobDetails.jobDescription} :{" "}
+                </span>
+                {this.state.jobDetails.jobRole}
+                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                Koordination dieser Bestellung hinter den Kulissen wollen wir
+                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
+              </p>
+              <p>
+                <span className="description-titles">
+                  About Company and more info :{" "}
+                </span>
+                {this.state.jobDetails.company.aboutCompany}
+                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                Koordination dieser Bestellung hinter den Kulissen wollen wir
+                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
+              </p>
+            </div>
+          </div>
+          <div className="jobProfile__section-3">
+            <p>
+              <span className="description-titles">Package :</span>{" "}
+              {this.state.jobDetails.package}
+            </p>
+            <p>
+              <span className="description-titles">Location :</span>{" "}
+              {this.state.jobDetails.postingLocation}
+            </p>
+            <p>
+              <span className="description-titles">Eligibile :</span>{" "}
+              {this.state.jobDetails.isStudentEligible ? "Yes" : "No"}
+            </p>
+            {this.state.jobDetails.isStudentEligible ? null : (
+              <p>
+                <span className="description-titles">
+                  Ineligibility Reason :
+                </span>{" "}
+                {this.state.jobDetails.inEligibilityReason}
+              </p>
+            )}
+            <p>
+              <span className="description-titles">Is Only for Female :</span>{" "}
+              {this.state.jobDetails.onlyForFemales ? "Yes" : "No"}
+            </p>
+            <p>
+              <span className="description-titles">Last date to apply :</span>
+              <br />
+              {moment(this.state.jobDetails.deadlineDate).format(
+                "DD-MM-YYYY hh:mm A"
+              )}
+            </p>
+            <p className="apply-button-container">
               {this.state.jobDetails.isStudentEligible ? (
-                <div className="jobsProfile__header-button">
-                  <ul className="flex flex-grow justify-end flex-wrap items-center">
-                    <li>
-                      <Link
-                        to="/home"
-                        className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800"
-                      >
-                        <span onClick={() => applyForJob(this.state.id)}>
-                          Apply
-                        </span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                <Link
+                  to="/home"
+                  className="btn text-gray-100 bg-green-600 hover:bg-green-800"
+                >
+                  <span onClick={() => applyForJob(this.state.id)}>Apply</span>
+                </Link>
               ) : (
                 ""
               )}
-            </div>
-            <div className="jobsProfile__main">
-              <div className="jobsProfile__main-heading">
-                <h3>About the job</h3>
-              </div>
-              <div className="jobsProfile__main-para">
-                <h5>Description</h5>
-                <p>
-                  berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                  Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                  Koordination dieser Bestellung hinter den Kulissen wollen wir
-                  stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                  eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                  Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-                </p>
-              </div>
-              <div className="jobsProfile__main-para">
-                <h5>Qualitfication Needed</h5>
-                <p>
-                  berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                  Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                  Koordination dieser Bestellung hinter den Kulissen wollen wir
-                  stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                  eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                  Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-                </p>
-              </div>
-              <div className="jobsProfile__main-para">
-                <h5>Role</h5>
-                <p>
-                  berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                  Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                  Koordination dieser Bestellung hinter den Kulissen wollen wir
-                  stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                  eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                  Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-                </p>
-              </div>
-            </div>
-
-            <div className="jobsProfile__footer">
-              <h3 className="jobsProfile__footer-header">Pay Range</h3>
-              <p>{this.state.jobDetails.package}</p>
-            </div>
-          </main>
+            </p>
+          </div>
         </div>
+
         {/*  Site footer */}
         <Footer />
       </div>
