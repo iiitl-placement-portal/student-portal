@@ -12,6 +12,8 @@ import AddJob from "./pages/AddJob";
 import AllJobs from "./pages/AllJobs";
 import Dashboard from "./pages/Dashboard";
 import AddCompany from "./pages/AddCompany";
+import AllCompany from "./pages/AllCompany";
+import AllStudents from "./pages/AllStudents";
 import Login from "./components/Login/Login";
 import AppliedJobs from "./pages/AppliedJobs";
 import Logout from "./components/Login/Logout";
@@ -20,7 +22,6 @@ import DashboardTpo from "./pages/DashboardTpo";
 import ResetPassword from "./pages/ResetPassword";
 
 import useToken from "./components/App/useToken";
-import AllCompany from "./pages/AllCompany";
 
 function App() {
   const location = useLocation();
@@ -100,6 +101,10 @@ function App() {
         
         <Route exact path="/all-company">
           <AllCompany />
+        </Route>
+
+        <Route exact path="/all-students">
+          <AllStudents />
         </Route>
       </Switch>
     </>
