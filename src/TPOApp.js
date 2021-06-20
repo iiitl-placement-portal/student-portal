@@ -19,6 +19,7 @@ import AllCompany from "./TPO/AllCompany";
 import CompanyProfile from "./TPO/CompanyProfile";
 import JobProfile from "./TPO/JobProfile";
 import StudentProfile from "./TPO/StudentProfile";
+import AllStudents from "./TPO/AllStudents";
 
 function TPOApp() {
   const location = useLocation();
@@ -48,7 +49,7 @@ function TPOApp() {
     },
     {
       name: "All Students",
-      nav: "allStudentsTpo",
+      nav: "all-students",
     },
     {
       name: "Unnamed",
@@ -66,6 +67,9 @@ function TPOApp() {
         </Route>
         <Route exact path="/home">
           <Dashboard />
+        </Route>
+        <Route exact path="/all-students">
+          <AllStudents title="All Students" />
         </Route>
         <Route exact path="/all-company">
           <AllCompany title="All Companies" />

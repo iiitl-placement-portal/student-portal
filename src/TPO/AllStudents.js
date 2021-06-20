@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Table from "./components/Table";
-import { Link } from "react-router-dom";
-import "./css/styles.css";
+// import { Link } from "react-router-dom";
+import "./components/css/table.css";
 
 /*
 div>div*6
