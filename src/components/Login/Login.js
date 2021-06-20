@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
-import SvgIcon from "../../partials/SvgIcon";
+import SvgIcon from "../SvgIcon";
 
 async function loginUser(credentials) {
   let data = await fetch("http://localhost:5000/login", {
@@ -34,14 +34,17 @@ export default function Login({ setToken }) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col overflow-hidden">
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="pt-5 pb-12 md:pt-20 md:pb-20">
               {/* Page header */}
-              <div className="header-logo" style={{display:"flex", justifyContent:"center"}}>
+              <div
+                className="header-logo"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <SvgIcon src="logo.png" />
               </div>
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
