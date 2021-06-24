@@ -27,11 +27,11 @@ function App() {
     return <Login setToken={setToken} />;
   }
 
-  if (payload.role === "student") {
+  if (payload.user.role === "student") {
     return <StudentApp />;
   }
 
-  if (payload.role === "tpo") {
+  if (payload.user.role === "tpo") {
     return <TPOApp />;
   }
 

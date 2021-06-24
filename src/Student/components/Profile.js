@@ -15,7 +15,7 @@ async function getStuData() {
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
     }).then((val) => val.json());
-    // console.log(profile);
+    console.log(profile);
     return profile;
   } catch (err) {
     console.error("Error in loading data from server", err);

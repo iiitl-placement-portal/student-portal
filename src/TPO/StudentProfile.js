@@ -7,7 +7,7 @@ import SvgIcon from "../components/SvgIcon";
 // get the student data from server
 async function getStuData(id) {
   try {
-    const profile = await fetch(`http://localhost:5000/studentProfile/${id}`, {
+    const profile = await fetch(`http://localhost:5000/students/${id}`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
