@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
-import { focusHandling } from "cruip-js-toolkit";
-import AOS from "aos";
+import React, { useEffect } from 'react';
+import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
+import { focusHandling } from 'cruip-js-toolkit';
+import AOS from 'aos';
 
 // import Home from "./pages/Home";
 
 // import Logout from "./components/Login/Logout";
-import Login from "./components/Login/Login";
-import ResetPassword from "./components/ResetPassword";
+import Login from './components/Login/Login';
+import ForgotPassword from './components/ForgotPassword';
 
-import Header from "./Student/components/Header";
-import Footer from "./Student/components/Footer";
+import Header from './Student/components/Header';
+import Footer from './Student/components/Footer';
 
-import Dashboard from "./Student/Dashboard";
-import AllJobs from "./Student/AllJobs";
-import AppliedJobs from "./Student/AppliedJobs";
-import JobProfile from "./Student/JobProfile";
+import Dashboard from './Student/Dashboard';
+import AllJobs from './Student/AllJobs';
+import AppliedJobs from './Student/AppliedJobs';
+import JobProfile from './Student/JobProfile';
 
-import useToken from "./components/App/useToken";
+import useToken from './components/App/useToken';
 
 function StudentApp() {
   const location = useLocation();
@@ -25,17 +25,17 @@ function StudentApp() {
   useEffect(() => {
     AOS.init({
       once: true,
-      disable: "phone",
+      disable: 'phone',
       duration: 700,
-      easing: "ease-out-cubic",
+      easing: 'ease-out-cubic',
     });
   });
 
   useEffect(() => {
-    document.querySelector("html").style.scrollBehavior = "auto";
+    document.querySelector('html').style.scrollBehavior = 'auto';
     window.scroll({ top: 0 });
-    document.querySelector("html").style.scrollBehavior = "";
-    focusHandling("outline");
+    document.querySelector('html').style.scrollBehavior = '';
+    focusHandling('outline');
   }, [location.pathname]); // triggered on route change.
 
   const { setToken } = useToken();
@@ -67,7 +67,7 @@ function StudentApp() {
           <Logout />
         </Route> */}
         <Route exact path="/reset-password">
-          <ResetPassword />
+          <ForgotPassword />
         </Route>
       </Switch>
       <Footer />

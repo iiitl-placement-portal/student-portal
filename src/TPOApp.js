@@ -8,7 +8,7 @@ import AOS from 'aos';
 // import Logout from "./components/Login/Logout";
 import Login from './components/Login/Login';
 import useToken from './components/App/useToken';
-import ResetPassword from './components/ResetPassword';
+import ForgotPassword from './components/ForgotPassword';
 
 import Header from './TPO/components/Header';
 import Footer from './TPO/components/Footer';
@@ -99,7 +99,7 @@ function TPOApp() {
           <Logout />
         </Route> */}
         <Route exact path="/reset-password">
-          <ResetPassword />
+          <ForgotPassword />
         </Route>
       </Switch>
       <Footer />

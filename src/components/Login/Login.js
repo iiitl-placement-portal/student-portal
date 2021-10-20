@@ -92,10 +92,10 @@ export default function Login({ setToken }) {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                       <Link
-                        to="reset-password"
+                        to="forgot-password"
                         className="text-sm font-medium text-blue-600 hover:underline float-right my-1"
                       >
-                        Reset Password
+                        Forgot Password
                       </Link>
                     </div>
                   </div>
