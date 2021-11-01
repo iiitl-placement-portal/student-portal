@@ -49,6 +49,15 @@
         margin: 1rem;
         font-weight: 600;
       }
+      &-edit-user {
+        color: whitesmoke;
+        font-size: 2rem;
+        // background-color: aqua;
+        text-align: right;
+        align-self: flex-end;
+        margin-right: 15px;
+        margin-top: -60px;
+      }
     }
     &-2 {
       display: flex;

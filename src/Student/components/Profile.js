@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
+import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import SvgIcon from "../../components/SvgIcon";
 
 import "../../css/styles.css";
@@ -72,6 +73,17 @@ class Profile extends React.Component {
               <FontAwesomeIcon icon={faFileAlt} />
             </a>
           </div>
+          <div className="profile__cunt-1-edit-user">
+            <a
+              href="/edit-user"
+              className="mx-3"
+              title="Edit User"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon={faUserEdit} />
+            </a>
+          </div>
         </div>
         <div className="profile__cunt-2">
           <div className="profile__cunt-2-section">
@@ -88,8 +100,8 @@ class Profile extends React.Component {
           </div>
           <div className="profile__cunt-2-section">
             <div className="profile__cunt-2-details">
-              <span>Approved by TPO :</span>{" "}
-              {this.state.user.approvedByTPO ? "Yes" : "No"}
+              <span>Approved by TPO :</span>{' '}
+              {this.state.user.approvedByTPO ? 'Yes' : 'No'}
             </div>
             <div className="profile__cunt-2-details">
               <span>Backlogs :</span>

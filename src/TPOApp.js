@@ -98,9 +98,6 @@ function TPOApp() {
         {/* <Route exact path="/logout">
           <Logout />
         </Route> */}
-        <Route exact path="/reset-password">
-          <ForgotPassword />
-        </Route>
       </Switch>
       <Footer />
     </>

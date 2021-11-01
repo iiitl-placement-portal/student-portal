@@ -16,6 +16,7 @@ import Dashboard from './Student/Dashboard';
 import AllJobs from './Student/AllJobs';
 import AppliedJobs from './Student/AppliedJobs';
 import JobProfile from './Student/JobProfile';
+import EditUser from './Student/EditUser';
 
 import useToken from './components/App/useToken';
 
@@ -51,6 +52,9 @@ function StudentApp() {
         <Route exact path="/home">
           <Dashboard />
         </Route>
+        <Route exact path="/edit-user">
+          <EditUser />
+        </Route>
         <Route exact path="/all-jobs">
           <AllJobs title="All Jobs" />
         </Route>
@@ -66,9 +70,6 @@ function StudentApp() {
         {/* <Route exact path="/logout">
           <Logout />
         </Route> */}
-        <Route exact path="/reset-password">
-          <ForgotPassword />
-        </Route>
       </Switch>
       <Footer />
     </>
