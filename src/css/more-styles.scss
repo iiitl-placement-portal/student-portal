@@ -280,13 +280,17 @@
       margin: 0.4rem;
       // width: 20rem;
       // height: 35rem;
-      background-color: rgb(145, 191, 255);
+      // background-color: rgb(145, 191, 255);
+      flex: 1;
+      background-color: #1a5f99;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       h3{
         font-size: 1.6rem;
         font-weight: 600;
         letter-spacing: 1px;
-        padding: 0.4rem;
+        // padding: 0.4rem;
+        padding: 0.5rem;
+        color: white;
       }
 
       ul{
@@ -307,12 +311,12 @@
     }
   }
   
-  &__notif{
-    flex: 3;
-  }
-  &__approve{
-    flex: 4;
-  }
+  // &__notif{
+  //   flex: 3;
+  // }
+  // &__approve{
+  //   flex: 4;
+  // }
 }
 
 .allStudents{
