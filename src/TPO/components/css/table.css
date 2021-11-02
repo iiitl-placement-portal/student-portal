@@ -187,4 +187,10 @@
   -webkit-transform: scale(1.2) rotate(0deg);
           transform: scale(1.2) rotate(0deg);
 }
+
+@media (max-width: 400px) {
+  header {
+    font-size: 80%;
+  }
+}
 /*# sourceMappingURL=table.css.map */

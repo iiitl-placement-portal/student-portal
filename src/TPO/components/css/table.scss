@@ -133,3 +133,9 @@ $border-color: #ddd;
   transition: all ease-in-out 0.1s;
   transform: scale(1.2)rotate(0deg);
 }
+
+@media (max-width:400px){
+  header{
+    font-size: 80%;
+  }
+} 
