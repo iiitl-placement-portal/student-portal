@@ -1,5 +1,57 @@
 import React from 'react';
 
+async function updateLinkedin(linkedlnURL) {
+  try {
+    // console.log(linkedlnURL);
+
+    const data = await fetch(`http://localhost:5000/update-linked-url`, {
+      method: 'post',
+      headers: {
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ linkedlnURL }),
+    });
+
+    if (data.status === 200) {
+      alert('Linkedln URL updated Successfully');
+    } else {
+      alert('Linkedln URL could not be updated');
+    }
+    // console.log(data);
+  } catch (err) {
+    console.error('Error in updating Linkedln URL', err);
+    return 'error, please check console for details';
+  }
+}
+
+async function updateResume(resumeUrl) {
+  try {
+    // console.log(resumeUrl);
+
+    const data = await fetch(`http://localhost:5000/update-resume-link`, {
+      method: 'post',
+      headers: {
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ contactNo: resumeUrl }),
+    });
+
+    if (data.status === 200) {
+      alert('Resume URL updated Successfully');
+    } else {
+      alert('Resume URL could not be updated');
+    }
+    // console.log(data);
+  } catch (err) {
+    console.error('Error in updating Resume URL', err);
+    return 'error, please check console for details';
+  }
+}
+
 async function updatePhone(phone) {
   try {
     // console.log(phone);
@@ -78,7 +130,15 @@ export default function EditUser() {
                         placeholder="Enter your new LinkedIn URL"
                         required
                       />
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">
+                      <button
+                        className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          updateLinkedin(
+                            document.getElementById('linkedIn').value
+                          );
+                        }}
+                      >
                         Update
                       </button>
                     </div>
@@ -103,7 +163,13 @@ export default function EditUser() {
                         placeholder="Enter your new Resume URL"
                         required
                       />
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">
+                      <button
+                        className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          updateResume(document.getElementById('resume').value);
+                        }}
+                      >
                         Update
                       </button>
                     </div>
