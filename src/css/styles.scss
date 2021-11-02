@@ -168,7 +168,10 @@
   max-width: 470px;
   width: 100% !important;
   /* height: 230px; */
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   border-radius: 0.5rem;
   overflow: hidden;
 
@@ -206,7 +209,8 @@
         justify-content: space-between;
         h3 {
           font-size: 16px;
-          font-weight: 600;
+          font-weight: 600;padding-top: 5px;
+          padding-bottom: 5px;
         }
       }
     }
@@ -465,33 +469,58 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
-  html{
-    font-size:70% ;
-  }
-  .job_card{
-    /* width: 200px !important;
-    height: 100px; */
-    margin: 0 !important;
-    /* padding: 0%; */
-  }
-  .job__card *{
+@media only screen and (max-width: 576px) {
+  html {
     font-size: 80%;
   }
-
-  .job__card h5{
-    font-size: 120% !important;
+  .dashboard__profile {
+    width: 100%;
+    // background-color: aqua;
+    display: flex;
+    justify-content: center;
   }
-  .job__card h3{
-    font-size: 95% !important;
+  .profile__card {
+    width: 90%;
+  }
+
+  .notification__section {
+    width: 90%;
+  }
+
+  .company {
+    &-name-container {
+      .job-id {
+        // !important tag required as css in additional-styles/utility-patterns.scss superseedes css present here to nullify the effect
+        font-size: 80% !important;
+      }
+    }
+
+    &-details {
+      &-value {
+        font-size: 80%;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 400px) {
-  .profile__card {
-    width: 100%;
+@media screen and (max-width: 355px) {
+  html {
+    font-size: 70%;
   }
-  .notification__section {
-    width: 80%;
+  .company-details {
+    &-value {
+      font-size: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  html {
+    font-size: 60%;
+  }
+  .company-details {
+    &-value {
+      font-size: 60%;
+    }
   }
 }

@@ -8,7 +8,6 @@ import AOS from 'aos';
 // import Logout from "./components/Login/Logout";
 import Login from './components/Login/Login';
 import useToken from './components/App/useToken';
-import ForgotPassword from './components/ForgotPassword';
 
 import Header from './TPO/components/Header';
 import Footer from './TPO/components/Footer';

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import SvgIcon from "../components/SvgIcon";
+// import SvgIcon from "../components/SvgIcon";
 import JobCard from "../components/JobCard";
 
 async function getAllJobs(compId) {

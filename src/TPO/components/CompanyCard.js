@@ -3,10 +3,7 @@ import moment from 'moment';
 import SvgIcon from '../../components/SvgIcon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faMapMarkerAlt,
   faUserTie,
-  faRupeeSign,
-  faBriefcase,
 } from '@fortawesome/free-solid-svg-icons';
 
 import '../../css/styles.css';
