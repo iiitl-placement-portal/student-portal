@@ -18,7 +18,7 @@ function Footer() {
                 </div>
               </Link>
             </div>
-            <div className="md:flex md:items-center md:justify-between items-center py-4 md:py-0 border-t border-gray-200">
+            <div className="md:flex md:items-center md:justify-between items-center py-4 md:py-0">
               {/* Social links */}
               <ul className="flex mb-4 md:order-1 md:ml-0 md:mb-0">
                 <li>
