@@ -1,18 +1,18 @@
-import React from "react";
-import moment from "moment";
-import SvgIcon from "../../components/SvgIcon";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import moment from 'moment';
+import SvgIcon from '../../components/SvgIcon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapMarkerAlt,
   faUserTie,
   faRupeeSign,
   faBriefcase,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
-import "../../css/styles.css";
+import '../../css/styles.css';
 
 const JobCard = (props) => {
-  // console.log(props.details)
+  console.log(props.details);
   return (
     <div className="job__card">
       <div className="job__card__section-1">
@@ -57,16 +57,18 @@ const JobCard = (props) => {
           </div> */}
         </div>
 
-        {/* <hr style={{ border: "1px solid darkgray" }} />
+        <hr style={{ border: '1px solid darkgray' }} />
 
         <div className="apply-before-container">
-          Apply Before :{" "}
+          Visiting On:{' '}
           <span>
-            {props.details.deadlineDate === "Applied"
-              ? "Applied"
-              : moment(props.details.deadlineDate).format("DD-MM-YYYY")}
+            {new Date(props.details.jobOpenings[0].deadlineDate) < Date.now()
+              ? 'Visited'
+              : moment(props.details.jobOpenings[0].deadlineDate).format(
+                  'DD-MM-YYYY'
+                )}
           </span>
-        </div> */}
+        </div>
       </div>
     </div>
   );

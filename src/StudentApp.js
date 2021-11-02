@@ -7,7 +7,6 @@ import AOS from 'aos';
 
 // import Logout from "./components/Login/Logout";
 import Login from './components/Login/Login';
-import ForgotPassword from './components/ForgotPassword';
 
 import Header from './Student/components/Header';
 import Footer from './Student/components/Footer';

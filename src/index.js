@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import * as jwt from 'jsonwebtoken';
-import * as serviceWorker from './serviceWorker';
 
 import StudentApp from './StudentApp';
 import TPOApp from './TPOApp';
