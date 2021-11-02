@@ -1,26 +1,25 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
-import moment from "moment";
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
+import moment from 'moment';
 
-import SvgIcon from "../components/SvgIcon";
+import SvgIcon from '../components/SvgIcon';
 
 const getJobDetails = async (id) => {
   try {
     const data = await fetch(`http://localhost:5000/jobs/${id}`, {
-      method: "get",
+      method: 'get',
       headers: {
         Authorization:
-          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
       },
     }).then((val) => val.json());
 
-    console.log("data", data);
+    // console.log('data', data);
 
     return data;
   } catch (err) {
-    console.error("Error in getting Job Details", err);
+    console.error('Error in getting Job Details', err);
   }
 };
 
@@ -28,16 +27,24 @@ const applyForJob = async (id) => {
   // console.log("applying", id);
   try {
     const data = await fetch(`http://localhost:5000/jobs/${id}/apply`, {
-      method: "post",
+      method: 'post',
       headers: {
         Authorization:
-          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
       },
-    }).then((val) => val.json());
+    });
     // console.log(data);
+    if (data.status === 200) {
+      alert(
+        'Application submitted Successfully.\nPage will automatically reload to synchronise the status after the alert box is closed.'
+      );
+    } else {
+      alert('Application could not be submitted due to technical reasons');
+    }
+    window.location.reload();
     return data;
   } catch (err) {
-    console.error("Error in applying for Job", err);
+    console.error('Error in applying for Job', err);
   }
 };
 
@@ -45,14 +52,14 @@ class JobProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "",
+      id: '',
       jobDetails: { company: {} },
     };
   }
 
   componentDidMount() {
     const url = window.location.pathname;
-    const jobId = url.replace("/jobs/", "");
+    const jobId = url.replace('/jobs/', '');
     // this.setState({id:ret});
 
     getJobDetails(jobId).then((val) => {
@@ -71,7 +78,7 @@ class JobProfile extends Component {
             <div className="company-image-container">
               <SvgIcon src="logo.png" classname="company-logo" />
             </div>
-            <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+            <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
             <div className="company-details-container">
               <p className="company-name">
                 <a
@@ -87,17 +94,17 @@ class JobProfile extends Component {
                   />
                 </a>
               </p>
-              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+              <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
               <p className="company-sector">
                 {this.state.jobDetails.company.companySector}
                 IT Company
               </p>
-              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
+              <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
               <p className="company-headquarters">
                 {this.state.jobDetails.company.companyHeadquarters}
                 <span className="description-titles">
                   Company Headquarters :
-                </span>{" "}
+                </span>{' '}
                 Choclate State, Dairy building, Silicon valley, New York 200001.
               </p>
             </div>
@@ -122,7 +129,7 @@ class JobProfile extends Component {
               </p>
               <p>
                 <span className="description-titles">
-                  Your role as {this.state.jobDetails.jobDescription} :{" "}
+                  Your role as {this.state.jobDetails.jobDescription} :{' '}
                 </span>
                 {this.state.jobDetails.jobRole}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
@@ -134,7 +141,7 @@ class JobProfile extends Component {
               </p>
               <p>
                 <span className="description-titles">
-                  About Company and more info :{" "}
+                  About Company and more info :{' '}
                 </span>
                 {this.state.jobDetails.company.aboutCompany}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
@@ -148,34 +155,34 @@ class JobProfile extends Component {
           </div>
           <div className="jobProfile__section-3">
             <p>
-              <span className="description-titles">Package :</span>{" "}
+              <span className="description-titles">Package :</span>{' '}
               {this.state.jobDetails.package}
             </p>
             <p>
-              <span className="description-titles">Location :</span>{" "}
+              <span className="description-titles">Location :</span>{' '}
               {this.state.jobDetails.postingLocation}
             </p>
             <p>
-              <span className="description-titles">Min CGPA :</span>{" "}
+              <span className="description-titles">Min CGPA :</span>{' '}
               {this.state.jobDetails.minCgpa}
             </p>
             <p>
-              <span className="description-titles">Max Backlog :</span>{" "}
+              <span className="description-titles">Max Backlog :</span>{' '}
               {this.state.jobDetails.maxBacklogsAllowed}
             </p>
             <p>
-              <span className="description-titles">Is Only for Female :</span>{" "}
-              {this.state.jobDetails.onlyForFemales ? "Yes" : "No"}
+              <span className="description-titles">Is Only for Female :</span>{' '}
+              {this.state.jobDetails.onlyForFemales ? 'Yes' : 'No'}
             </p>
             <p>
-              <span className="description-titles">Eligibile :</span>{" "}
-              {this.state.jobDetails.isStudentEligible ? "Yes" : "No"}
+              <span className="description-titles">Eligibile :</span>{' '}
+              {this.state.jobDetails.isStudentEligible ? 'Yes' : 'No'}
             </p>
             {this.state.jobDetails.isStudentEligible ? null : (
               <p>
                 <span className="description-titles">
                   Ineligibility Reason :
-                </span>{" "}
+                </span>{' '}
                 {this.state.jobDetails.inEligibilityReason}
               </p>
             )}
@@ -183,19 +190,19 @@ class JobProfile extends Component {
               <span className="description-titles">Last date to apply :</span>
               <br />
               {moment(this.state.jobDetails.deadlineDate).format(
-                "DD-MM-YYYY hh:mm A"
+                'DD-MM-YYYY hh:mm A'
               )}
             </p>
             <p className="apply-button-container">
               {this.state.jobDetails.isStudentEligible ? (
-                <Link
-                  to="/home"
+                <button
                   className="btn text-gray-100 bg-green-600 hover:bg-green-800"
+                  onClick={() => applyForJob(this.state.id)}
                 >
-                  <span onClick={() => applyForJob(this.state.id)}>Apply</span>
-                </Link>
+                  Apply
+                </button>
               ) : (
-                ""
+                ''
               )}
             </p>
           </div>
