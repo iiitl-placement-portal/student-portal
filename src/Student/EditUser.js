@@ -1,10 +1,12 @@
 import React from 'react';
 
+import {BASE_URL} from "../CONSTANTS";
+
 async function updateLinkedin(linkedlnURL) {
   try {
     // console.log(linkedlnURL);
 
-    const data = await fetch(`http://localhost:5000/update-linked-url`, {
+    const data = await fetch(`${BASE_URL}/update-linked-url`, {
       method: 'post',
       headers: {
         Authorization:
@@ -30,7 +32,7 @@ async function updateResume(resumeUrl) {
   try {
     // console.log(resumeUrl);
 
-    const data = await fetch(`http://localhost:5000/update-resume-link`, {
+    const data = await fetch(`${BASE_URL}/update-resume-link`, {
       method: 'post',
       headers: {
         Authorization:
@@ -56,7 +58,7 @@ async function updatePhone(phone) {
   try {
     // console.log(phone);
 
-    const data = await fetch(`http://localhost:5000/update-phone-number`, {
+    const data = await fetch(`${BASE_URL}/update-phone-number`, {
       method: 'post',
       headers: {
         Authorization:
@@ -82,7 +84,7 @@ async function updatePassword(password) {
   try {
     // console.log(password);
 
-    const data = await fetch(`http://localhost:5000/reset-password`, {
+    const data = await fetch(`${BASE_URL}/reset-password`, {
       method: 'post',
       headers: {
         Authorization:

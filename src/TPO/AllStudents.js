@@ -57,13 +57,13 @@ class AllStudents extends Component {
   render() {
     const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
 
-    const columnStruct = tableFields.map((el) => {
-      return (
-        <div key={el} className={`allStudents__column-${el}`}>
-          {el}
-        </div>
-      );
-    });
+    // const columnStruct = tableFields.map((el) => {
+    //   return (
+    //     <div key={el} className={`allStudents__column-${el}`}>
+    //       {el}
+    //     </div>
+    //   );
+    // });
 
     return (
       <div className="flex flex-col min-h-screen overflow-hidden">

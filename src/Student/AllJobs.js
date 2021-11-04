@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import JobCard from "../components/JobCard";
+import {BASE_URL} from "../CONSTANTS";
 
 async function getAllJobs() {
   try {
-    const data = await fetch("http://localhost:5000/jobs/all", {
+    const data = await fetch(`${BASE_URL}/jobs/all`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,

@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 // import SvgIcon from "../components/SvgIcon";
 import JobCard from "../components/JobCard";
+import {BASE_URL} from "../CONSTANTS";
 
 async function getAllJobs(compId) {
   try {
-    const data = await fetch(`http://localhost:5000/companies/${compId}/jobs`, {
+    const data = await fetch(`${BASE_URL}/companies/${compId}/jobs`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,

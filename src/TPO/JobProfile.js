@@ -5,10 +5,11 @@ import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import moment from "moment";
 
 import SvgIcon from "../components/SvgIcon";
+import {BASE_URL} from "../CONSTANTS";
 
 const getJobDetails = async (url) => {
   try {
-    const data = await fetch(`http://localhost:5000${url}`, {
+    const data = await fetch(`${BASE_URL}${url}`, {
       method: "get",
       headers: {
         Authorization:

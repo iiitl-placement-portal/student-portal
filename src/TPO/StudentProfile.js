@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
 import SvgIcon from "../components/SvgIcon";
+import {BASE_URL} from "../CONSTANTS";
 
 // get the student data from server
 async function getStuData(id) {
   try {
-    const profile = await fetch(`http://localhost:5000/students/${id}`, {
+    const profile = await fetch(`${BASE_URL}/students/${id}`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,

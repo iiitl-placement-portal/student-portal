@@ -4,13 +4,14 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFileAlt } from "@fortawesome/free-regular-svg-icons";
 import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import SvgIcon from "../../components/SvgIcon";
+import {BASE_URL} from "../../CONSTANTS";
 
 import "../../css/styles.css";
 
 // get the student data from server
 async function getStuData() {
   try {
-    const profile = await fetch("http://localhost:5000/profile", {
+    const profile = await fetch(`${BASE_URL}/profile`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,

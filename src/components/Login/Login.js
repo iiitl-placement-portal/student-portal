@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import SvgIcon from "../SvgIcon";
+import {BASE_URL} from "../../CONSTANTS";
 
 async function loginUser(credentials) {
-  let data = await fetch("http://localhost:5000/login", {
+  let data = await fetch(`${BASE_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,9 +1,10 @@
 import React from "react";
 import NotificationCard from "../../components/NotificationCards";
+import {BASE_URL} from "../../CONSTANTS";
 import "../../css/styles.css";
 
 const getNotification = async () => {
-  const data = await fetch("http://localhost:5000/profile", {
+  const data = await fetch(`${BASE_URL}/profile`, {
     headers: {
       Authorization:
         "Bearer " + JSON.parse(localStorage.getItem("token")).token,

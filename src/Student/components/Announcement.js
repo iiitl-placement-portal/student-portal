@@ -1,9 +1,10 @@
 import React from "react";
 import NotificationCard from "../../components/NotificationCards";
+import {BASE_URL} from "../../CONSTANTS";
 import "../../css/styles.css";
 
 const geeAnnouncements = async () => {
-  const data = await fetch("http://localhost:5000/announcement", {
+  const data = await fetch(`${BASE_URL}/announcement`, {
     headers: {
       Authorization:
         "Bearer " + JSON.parse(localStorage.getItem("token")).token,

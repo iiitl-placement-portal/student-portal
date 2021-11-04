@@ -1,6 +1,7 @@
 import React from "react";
 import SvgIcon from "./SvgIcon";
 import "../css/styles.css";
+import {BASE_URL} from "../CONSTANTS";
 
 const readHandler = async (props) => {
   try {
@@ -9,7 +10,7 @@ const readHandler = async (props) => {
     // alert(iat);
     const req = { iat: props.iat };
     // console.log(req);
-    const data = await fetch("http://localhost:5000/markAsRead", {
+    const data = await fetch(`${BASE_URL}/markAsRead`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
@@ -36,7 +37,7 @@ const deleteHandler = async (props) => {
     // alert(iat);
     const req = { iat: props.iat };
     // console.log(req);
-    const data = await fetch("http://localhost:5000/deleteNotification", {
+    const data = await fetch(`${BASE_URL}/deleteNotification`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
