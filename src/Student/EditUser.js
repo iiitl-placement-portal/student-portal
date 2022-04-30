@@ -1,30 +1,30 @@
-import React from 'react';
+import React from "react";
 
-import {BASE_URL} from "../CONSTANTS";
+import { BASE_URL } from "../CONSTANTS";
 
 async function updateLinkedin(linkedlnURL) {
   try {
     // console.log(linkedlnURL);
 
-    const data = await fetch(`${BASE_URL}/update-linked-url`, {
-      method: 'post',
+    const data = await fetch(`${BASE_URL}/update/linkedin`, {
+      method: "post",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
-        'Content-Type': 'application/json',
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ linkedlnURL }),
     });
 
     if (data.status === 200) {
-      alert('Linkedln URL updated Successfully');
+      alert("Linkedln URL updated Successfully");
     } else {
-      alert('Linkedln URL could not be updated');
+      alert("Linkedln URL could not be updated");
     }
     // console.log(data);
   } catch (err) {
-    console.error('Error in updating Linkedln URL', err);
-    return 'error, please check console for details';
+    console.error("Error in updating Linkedln URL", err);
+    return "error, please check console for details";
   }
 }
 
@@ -32,25 +32,25 @@ async function updateResume(resumeUrl) {
   try {
     // console.log(resumeUrl);
 
-    const data = await fetch(`${BASE_URL}/update-resume-link`, {
-      method: 'post',
+    const data = await fetch(`${BASE_URL}/update/resume`, {
+      method: "post",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
-        'Content-Type': 'application/json',
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ contactNo: resumeUrl }),
     });
 
     if (data.status === 200) {
-      alert('Resume URL updated Successfully');
+      alert("Resume URL updated Successfully");
     } else {
-      alert('Resume URL could not be updated');
+      alert("Resume URL could not be updated");
     }
     // console.log(data);
   } catch (err) {
-    console.error('Error in updating Resume URL', err);
-    return 'error, please check console for details';
+    console.error("Error in updating Resume URL", err);
+    return "error, please check console for details";
   }
 }
 
@@ -58,25 +58,25 @@ async function updatePhone(phone) {
   try {
     // console.log(phone);
 
-    const data = await fetch(`${BASE_URL}/update-phone-number`, {
-      method: 'post',
+    const data = await fetch(`${BASE_URL}/update/phone`, {
+      method: "post",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
-        'Content-Type': 'application/json',
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ contactNo: phone }),
     });
 
     if (data.status === 200) {
-      alert('Phone Number updated Successfully');
+      alert("Phone Number updated Successfully");
     } else {
-      alert('Phone Number could not be updated');
+      alert("Phone Number could not be updated");
     }
     // console.log(data);
   } catch (err) {
-    console.error('Error in updating phone number', err);
-    return 'error, please check console for details';
+    console.error("Error in updating phone number", err);
+    return "error, please check console for details";
   }
 }
 
@@ -84,25 +84,25 @@ async function updatePassword(password) {
   try {
     // console.log(password);
 
-    const data = await fetch(`${BASE_URL}/reset-password`, {
-      method: 'post',
+    const data = await fetch(`${BASE_URL}/update/password`, {
+      method: "post",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
-        'Content-Type': 'application/json',
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ password }),
     });
 
     if (data.status === 200) {
-      alert('Password updated Successfully');
+      alert("Password updated Successfully");
     } else {
-      alert('Password could not be updated');
+      alert("Password could not be updated");
     }
     // console.log(data);
   } catch (err) {
-    console.error('Error in updating password', err);
-    return 'error, please check console for details';
+    console.error("Error in updating password", err);
+    return "error, please check console for details";
   }
 }
 
@@ -134,10 +134,10 @@ export default function EditUser() {
                       />
                       <button
                         className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
-                        onClick={(event) => {
+                        onClick={event => {
                           event.preventDefault();
                           updateLinkedin(
-                            document.getElementById('linkedIn').value
+                            document.getElementById("linkedIn").value
                           );
                         }}
                       >
@@ -167,9 +167,9 @@ export default function EditUser() {
                       />
                       <button
                         className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
-                        onClick={(event) => {
+                        onClick={event => {
                           event.preventDefault();
-                          updateResume(document.getElementById('resume').value);
+                          updateResume(document.getElementById("resume").value);
                         }}
                       >
                         Update
@@ -200,9 +200,9 @@ export default function EditUser() {
                       />
                       <button
                         className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
-                        onClick={(event) => {
+                        onClick={event => {
                           event.preventDefault();
-                          updatePhone(document.getElementById('phone').value);
+                          updatePhone(document.getElementById("phone").value);
                         }}
                       >
                         Update
@@ -231,10 +231,10 @@ export default function EditUser() {
                       />
                       <button
                         className="btn text-white bg-blue-600 hover:bg-blue-700 w-full"
-                        onClick={(event) => {
+                        onClick={event => {
                           event.preventDefault();
                           updatePassword(
-                            document.getElementById('password').value
+                            document.getElementById("password").value
                           );
                         }}
                       >
