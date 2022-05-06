@@ -15,14 +15,13 @@ const getJobDetails = async (url) => {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
-    }).then((val) => {
-      alert("Successfully Applied!!");
-      val.json();
     });
 
-    console.log("data", data);
+    const retData = await data.json();
 
-    return data;
+    // console.log("data", retData);
+
+    return retData;
   } catch (err) {
     console.error("Error in getting Job Details", err);
   }
