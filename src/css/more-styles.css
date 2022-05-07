@@ -56,31 +56,21 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
   width: 87%;
   margin: 0 auto;
 }
 
 .AddJob__section {
   margin: 0 auto;
-  background-image: linear-gradient(135deg, transparent 0%, transparent 17%, rgba(87, 146, 234, 0.21) 17%, rgba(87, 146, 234, 0.21) 59%, transparent 59%, transparent 64%, rgba(149, 170, 236, 0.29) 64%, rgba(149, 170, 236, 0.29) 100%), linear-gradient(45deg, transparent 0%, transparent 2%, rgba(189, 221, 255, 0.47) 2%, rgba(189, 221, 255, 0.47) 46%, rgba(114, 178, 239, 0.27) 46%, rgba(114, 178, 239, 0.27) 54%, transparent 54%, transparent 63%, rgba(170, 186, 248, 0.29) 63%, rgba(170, 186, 248, 0.29) 100%), linear-gradient(90deg, white, white);
+  width: 80%;
 }
 
 .AddJob__section-heading {
   text-transform: uppercase;
-  margin: 1rem auto;
+  margin: 0rem auto;
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  -webkit-transform: scale(1.2, 1);
-          transform: scale(1.2, 1);
-  margin-top: 5rem;
 }
 
 .AddJob__section-para {
@@ -98,14 +88,11 @@
 
 .AddJob__container {
   background: rgba(255, 255, 255, 0.25);
-  -webkit-box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-          box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 80%;
   margin: 3rem auto;
+}
+
+.AddJob__form {
+  margin: 0rem auto;
 }
 
 .AddJob__form > div {
@@ -115,12 +102,15 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0.5rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  width: 100%;
 }
 
 .AddJob__form > div > div {
@@ -131,7 +121,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 1rem auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem;
 }
 
 .AddJob__form > div > div label {
@@ -139,6 +132,7 @@
   color: #404040;
   font-weight: 500;
   text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
 
 .AddJob__form > div > div label sup {
@@ -147,24 +141,25 @@
 
 .AddJob__form > div input,
 .AddJob__form > div textarea {
-  width: 20rem;
+  background-color: #eeeeee;
+  width: 25rem;
   height: 3rem;
   font-size: 1.1rem;
   border: none;
   outline: none !important;
-  background-color: transparent;
+  padding: 0.6rem;
   border-bottom: 2px solid #848484;
 }
 
 .AddJob__form-text {
-  margin-left: 2rem;
+  width: 100%;
 }
 
 .AddJob__form-text textarea {
+  min-width: 100%;
   outline: none !important;
   word-wrap: wrap;
-  height: 10rem !important;
-  width: 50rem !important;
+  min-height: 10rem !important;
 }
 
 .AddJob__form-file input {
