@@ -232,8 +232,12 @@
   }
   &__calendar{
     height: 90rem;
+    padding: 1rem;
+    min-width: 30rem;
     &  > iframe {
-      height: 80rem;
+      border-radius: 1rem;
+      width: 40rem;
+      // overflow: scroll;
     }
   }
   &__links{
@@ -273,18 +277,19 @@
       // flex: 1;
       margin: 2rem;
       // width: 20rem;
-      height: 35rem;
+      // height: 39rem;
       background-color: rgba(255, 255, 255, 0);
       flex: 1;
       // background-color: #1a5f99;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;
       h3{
+        background-color: #1a5f99;
         font-size: 1.6rem;
         font-weight: 600;
         letter-spacing: 1px;
         // padding: 0.4rem;
         padding: 0.5rem;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
       }
 
       ul{
@@ -306,14 +311,21 @@
   }
   
   &__notif{
+    width: 50rem;
     & > iframe {
       height: 50rem;
+
 
     }
   }
   // &__approve{
   //   flex: 4;
   // }
+  &__Notification{
+    height: 100%;
+  }
+
+
 }
 
 .allStudents{
@@ -362,6 +374,7 @@
     justify-content: flex-start;
   }
   &__card{
+    width: 100%;
     
     box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
     -webkit-box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
@@ -406,3 +419,58 @@
     width: 100% !important;
   }
 }
+
+.form{
+  &__ui{
+    margin: 1rem;
+    textarea{
+      width: 100%;
+    }
+    &-send{
+      margin-bottom: 0.2rem;
+      // height: 1.2rem;
+    }
+    .formSend{
+      background-color: #1a5f99;
+      font-size: 1.2rem;
+      padding: 0.3rem 1rem;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  &__dashboard{
+    width: 100%;
+    // background-color: rgb(198, 253, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    & > div{
+      width: 100%;
+      // background-color: #8fe7b1;
+    }
+
+  }
+  &__announcement{
+
+  }
+}
+
+.Announcement{
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__container{
+    min-height: 23rem;
+  }
+  
+  .form__mail{
+    align-self: flex-end;
+  }
+}
+
+

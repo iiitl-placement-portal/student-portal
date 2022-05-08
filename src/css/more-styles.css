@@ -224,10 +224,13 @@
 
 .dashboardTpo__calendar {
   height: 90rem;
+  padding: 1rem;
+  min-width: 30rem;
 }
 
 .dashboardTpo__calendar > iframe {
-  height: 80rem;
+  border-radius: 1rem;
+  width: 40rem;
 }
 
 .dashboardTpo__links ul {
@@ -279,7 +282,6 @@
 .dashboardTpo__cunt > div {
   border-radius: 10px;
   margin: 2rem;
-  height: 35rem;
   background-color: rgba(255, 255, 255, 0);
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -289,11 +291,12 @@
 }
 
 .dashboardTpo__cunt > div h3 {
+  background-color: #1a5f99;
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 0.5rem;
-  color: black;
+  color: white;
 }
 
 .dashboardTpo__cunt > div ul {
@@ -314,8 +317,16 @@
           box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
+.dashboardTpo__notif {
+  width: 50rem;
+}
+
 .dashboardTpo__notif > iframe {
   height: 50rem;
+}
+
+.dashboardTpo__Notification {
+  height: 100%;
 }
 
 .allStudents__section {
@@ -373,6 +384,7 @@
 }
 
 .query__card {
+  width: 100%;
   box-shadow: 0px 0px 30px -12px rgba(176, 167, 167, 0.72);
   -webkit-box-shadow: 0px 0px 30px -12px rgba(176, 167, 167, 0.72);
   -moz-box-shadow: 0px 0px 30px -12px rgba(176, 167, 167, 0.72);
@@ -415,5 +427,67 @@
   .query__section {
     width: 100% !important;
   }
+}
+
+.form__ui {
+  margin: 1rem;
+}
+
+.form__ui textarea {
+  width: 100%;
+}
+
+.form__ui-send {
+  margin-bottom: 0.2rem;
+}
+
+.form__ui .formSend {
+  background-color: #1a5f99;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form__dashboard {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.form__dashboard > div {
+  width: 100%;
+}
+
+.Announcement__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Announcement__container {
+  min-height: 23rem;
+}
+
+.Announcement .form__mail {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 /*# sourceMappingURL=more-styles.css.map */
