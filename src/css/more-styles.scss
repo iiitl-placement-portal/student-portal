@@ -225,10 +225,20 @@
     margin: 7rem auto 2rem;
   }
   &__stats{
-    // background-color: rgb(240, 140, 140);
+    background-color: white;
     height: 30rem;
     // margin: 0;
     padding: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+
+    .piechart {
+      width: 50%;
+      height: 45%;
+    }
   }
   &__calendar{
     height: 90rem;
@@ -267,8 +277,9 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap:wrap-reverse;
+    flex-direction: row;
     
     // background-color: rgb(140, 140, 248);
     
