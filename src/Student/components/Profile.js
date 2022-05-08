@@ -56,7 +56,7 @@ class Profile extends React.Component {
             <h3>{this.state.user.fullName}</h3>
             <h3>{this.state.user.enrollmentNumber}</h3>
             <a
-              href={this.state.user.linkedlnURL}
+              href={this.state.user.linkedInURL}
               className="mx-3"
               title="LinkedIn"
               target="_blank"
