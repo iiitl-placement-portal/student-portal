@@ -78,7 +78,7 @@ function Footer() {
                   to="#"
                   className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
-                  Automation cell - DARG
+                  Automation cell - WCARL
                 </Link>
               </li>
               {/* <li className="mb-2">

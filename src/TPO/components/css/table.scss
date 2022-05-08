@@ -70,10 +70,17 @@ $border-color: #ddd;
     color: $light-color;
     text-align: center;
     padding: 10px;
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     h2 {
       font-size: 24px;
       font-weight: 300;
+    }
+    button {
+
     }
   }
 

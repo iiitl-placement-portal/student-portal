@@ -18,6 +18,8 @@ import AllStudents from "./TPO/AllStudents";
 import Queries from "./TPO/Queries";
 import AllJobs from "./TPO/AllJobs";
 import PendingApproval from './TPO/PendingApproval';
+import FilledForm from './TPO/components/FilledForm';
+
 function TPOApp() {
   const location = useLocation();
 
@@ -90,6 +92,9 @@ function TPOApp() {
 
         <Route exact path="/pending-approvals">
           <PendingApproval />
+        </Route>
+        <Route exact path="/pending-approvals/:id">
+          <FilledForm />
         </Route>
 
         <Route exact path="/login">

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import "./css/table.css"
 
-const Table = ({ tableData, headingColumns, title, breakOn = 'medium' }) => {
+const Table = ({ tableData, headingColumns, title, breakOn = 'medium',jsonToCsv }) => {
   let tableClass = 'table-container__table';
 
   if(breakOn === 'small') {
@@ -61,6 +61,7 @@ const Table = ({ tableData, headingColumns, title, breakOn = 'medium' }) => {
     <div className="table-container">
       <div className="table-container__title">
         <h2>{title}</h2>
+        <button onClick={jsonToCsv} >Download Data</button>
       </div>
       <table className={tableClass}>
         <thead>
