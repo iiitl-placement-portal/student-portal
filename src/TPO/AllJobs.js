@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import JobCard from "./components/CompanyCard";
+import JobCard from "../components/JobCard";
 import {BASE_URL} from "../CONSTANTS";
 
 async function getAllJobs() {
   try {
-    const data = await fetch(`${BASE_URL}/companies/all`, {
+    const data = await fetch(`${BASE_URL}/jobs/all`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
     });
     const retData = await data.json();
-    console.log("data", retData);
+    // console.log("data", retData);
     return retData;
   } catch (err) {
     console.error("Error in loading data from server", err);
@@ -44,7 +44,7 @@ class AllJobs extends Component {
     const jobcard = this.state.JobsAll.map((it) => {
       // console.log(it)
       return (
-        <Link key={it.jobId} to={"/companies/" + it._id}>
+        <Link key={it.jobId} to={"/jobs/" + it._id}>
           <JobCard key={it.jobId} details={it} />
         </Link>
       );

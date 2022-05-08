@@ -79,7 +79,7 @@ class JobProfile extends Component {
             <div className="company-image-container">
               <SvgIcon src="logo.png" classname="company-logo" />
             </div>
-            <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
+            <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
             <div className="company-details-container">
               <p className="company-name">
                 <a
@@ -94,19 +94,6 @@ class JobProfile extends Component {
                     className="ml-2 website-arrow-icon"
                   />
                 </a>
-              </p>
-              <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
-              <p className="company-sector">
-                {this.state.jobDetails.company.companySector}
-                IT Company
-              </p>
-              <hr style={{ border: '1px solid darkgrey', width: '90%' }} />
-              <p className="company-headquarters">
-                {this.state.jobDetails.company.companyHeadquarters}
-                <span className="description-titles">
-                  Company Headquarters :
-                </span>{' '}
-                Choclate State, Dairy building, Silicon valley, New York 200001.
               </p>
             </div>
           </div>
@@ -130,7 +117,7 @@ class JobProfile extends Component {
               </p>
               <p>
                 <span className="description-titles">
-                  Your role as {this.state.jobDetails.jobDescription} :{' '}
+                  Your role as {this.state.jobDetails.jobDescription} :{" "}
                 </span>
                 {this.state.jobDetails.jobRole}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
@@ -142,7 +129,7 @@ class JobProfile extends Component {
               </p>
               <p>
                 <span className="description-titles">
-                  About Company and more info :{' '}
+                  About Company and more info :{" "}
                 </span>
                 {this.state.jobDetails.company.aboutCompany}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
@@ -156,34 +143,38 @@ class JobProfile extends Component {
           </div>
           <div className="jobProfile__section-3">
             <p>
-              <span className="description-titles">Package :</span>{' '}
+              <span className="description-titles">Package :</span>{" "}
               {this.state.jobDetails.package}
             </p>
             <p>
-              <span className="description-titles">Location :</span>{' '}
+              <span className="description-titles">Location :</span>{" "}
               {this.state.jobDetails.postingLocation}
             </p>
             <p>
-              <span className="description-titles">Min CGPA :</span>{' '}
+              <span className="description-titles">Batches Graduating in:</span>{" "}
+              {this.state.jobDetails.batchesAllowed?.join(", ")}
+            </p>
+            <p>
+              <span className="description-titles">Min CGPA :</span>{" "}
               {this.state.jobDetails.minCgpa}
             </p>
             <p>
-              <span className="description-titles">Max Backlog :</span>{' '}
+              <span className="description-titles">Max Backlog :</span>{" "}
               {this.state.jobDetails.maxBacklogsAllowed}
             </p>
             <p>
-              <span className="description-titles">Is Only for Female :</span>{' '}
-              {this.state.jobDetails.onlyForFemales ? 'Yes' : 'No'}
+              <span className="description-titles">Is Only for Female :</span>{" "}
+              {this.state.jobDetails.onlyForFemales ? "Yes" : "No"}
             </p>
             <p>
-              <span className="description-titles">Eligibile :</span>{' '}
-              {this.state.jobDetails.isStudentEligible ? 'Yes' : 'No'}
+              <span className="description-titles">Eligibile :</span>{" "}
+              {this.state.jobDetails.isStudentEligible ? "Yes" : "No"}
             </p>
             {this.state.jobDetails.isStudentEligible ? null : (
               <p>
                 <span className="description-titles">
                   Ineligibility Reason :
-                </span>{' '}
+                </span>{" "}
                 {this.state.jobDetails.inEligibilityReason}
               </p>
             )}
@@ -191,7 +182,7 @@ class JobProfile extends Component {
               <span className="description-titles">Last date to apply :</span>
               <br />
               {moment(this.state.jobDetails.deadlineDate).format(
-                'DD-MM-YYYY hh:mm A'
+                "DD-MM-YYYY hh:mm A"
               )}
             </p>
             <p className="apply-button-container">
@@ -203,7 +194,7 @@ class JobProfile extends Component {
                   Apply
                 </button>
               ) : (
-                ''
+                ""
               )}
             </p>
           </div>

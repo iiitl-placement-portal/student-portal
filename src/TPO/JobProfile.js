@@ -6,7 +6,7 @@ import moment from "moment";
 import Table from "./components/Table";
 
 import SvgIcon from "../components/SvgIcon";
-import {BASE_URL} from "../CONSTANTS";
+import { BASE_URL } from "../CONSTANTS";
 
 const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
 
@@ -35,7 +35,7 @@ class JobProfile extends Component {
     super(props);
     this.state = {
       id: "",
-      jobDetails: { company: {}, studentsApplied: [] },
+      jobDetails: { studentsApplied: [] },
     };
   }
 
@@ -45,7 +45,7 @@ class JobProfile extends Component {
     // console.log(url);
     // this.setState({id:ret});
 
-    getJobDetails(url).then((val) => {
+    getJobDetails(url).then(val => {
       this.setState({
         jobDetails: val,
         id: jobId,
@@ -54,7 +54,7 @@ class JobProfile extends Component {
   }
 
   render() {
-    const students = this.state.jobDetails.studentsApplied.map((val) => {
+    const students = this.state.jobDetails.studentsApplied.map(val => {
       return (
         <li className="students__applyCard">
           <Link to={`/studentprofile/${val._id}`}>
@@ -76,30 +76,17 @@ class JobProfile extends Component {
             <div className="company-details-container">
               <p className="company-name">
                 <a
-                  href={this.state.jobDetails.company.companyWebsite}
+                  href={this.state.jobDetails.companyWebsite}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {this.state.jobDetails.company.companyName}
+                  {this.state.jobDetails.companyName}
 
                   <FontAwesomeIcon
                     icon={faArrowAltCircleRight}
                     className="ml-2 website-arrow-icon"
                   />
                 </a>
-              </p>
-              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
-              <p className="company-sector">
-                {this.state.jobDetails.company.companySector}
-                IT Company
-              </p>
-              <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
-              <p className="company-headquarters">
-                {this.state.jobDetails.company.companyHeadquarters}
-                <span className="description-titles">
-                  Company Headquarters :
-                </span>{" "}
-                Choclate State, Dairy building, Silicon valley, New York 200001.
               </p>
             </div>
           </div>
@@ -137,7 +124,7 @@ class JobProfile extends Component {
                 <span className="description-titles">
                   About Company and more info :{" "}
                 </span>
-                {this.state.jobDetails.company.aboutCompany}
+                {this.state.jobDetails.aboutCompany}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
                 Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
                 Koordination dieser Bestellung hinter den Kulissen wollen wir
@@ -155,6 +142,10 @@ class JobProfile extends Component {
             <p>
               <span className="description-titles">Location :</span>{" "}
               {this.state.jobDetails.postingLocation}
+            </p>
+            <p>
+              <span className="description-titles">Batches Graduating in:</span>{" "}
+              {this.state.jobDetails.batchesAllowed?.join(", ")}
             </p>
             <p>
               <span className="description-titles">Min CGPA :</span>{" "}
