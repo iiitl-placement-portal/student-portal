@@ -22,7 +22,7 @@ const JobCard = (props) => {
         </div>
 
         <div className="company-name-container">
-          <h5>{props.details.company.companyName}</h5>
+          <h5>{props.details.companyName}</h5>
           <hr style={{ border: '1px solid darkgray' }} />
           <h3 className="job-id">{props.details.jobId}</h3>
         </div>

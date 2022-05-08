@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "../css/more-styles.css";
 import AllJobs from "./components/AllPendingJobs";
-import AllPendingJobs from "./components/CompanyCard";
 
 
 const JobApproval = () => {
@@ -14,7 +13,7 @@ const JobApproval = () => {
           <h3 >Pending Approval</h3>
         </div>
         <div className=".jobApproval__cards">
-          <AllPendingJobs />
+          <AllJobs />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import JobCard from "./JobCard";
+import JobCard from "../../components/JobCard";
 import {BASE_URL} from "./../../CONSTANTS";
 
 async function getAllJobs() {
