@@ -39,7 +39,7 @@ async function updateResume(resumeUrl) {
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ contactNo: resumeUrl }),
+      body: JSON.stringify({ resumeUrl }),
     });
 
     if (data.status === 200) {
@@ -54,7 +54,7 @@ async function updateResume(resumeUrl) {
   }
 }
 
-async function updatePhone(phone) {
+async function updatePhone(contactNo) {
   try {
     // console.log(phone);
 
@@ -65,7 +65,7 @@ async function updatePhone(phone) {
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ contactNo: phone }),
+      body: JSON.stringify({ contactNo }),
     });
 
     if (data.status === 200) {
