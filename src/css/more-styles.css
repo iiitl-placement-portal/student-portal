@@ -56,6 +56,9 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 87%;
   margin: 0 auto;
 }
@@ -63,6 +66,7 @@
 .AddJob__section {
   margin: 0 auto;
   width: 80%;
+  margin-top: 5rem;
 }
 
 .AddJob__section-heading {
@@ -513,5 +517,89 @@
   letter-spacing: 1px;
   padding: 0.5rem;
   color: black;
+}
+
+.stuquery__section {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+
+.stuquery__section-heading {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  -webkit-transform: scale(1.2, 1);
+          transform: scale(1.2, 1);
+}
+
+.stuquery__section-heading h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  color: black;
+}
+
+.stuquery__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70vw;
+}
+
+.stuquery__form textarea {
+  height: 20rem;
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+}
+
+.stuquery__form input {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #0371ee;
+  width: 10rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.FilledForm__buttons {
+  width: 50%;
+}
+
+.FilledForm__buttons button {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #ff0a0a;
+  height: 3rem;
+  width: 30rem !important;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=more-styles.css.map */

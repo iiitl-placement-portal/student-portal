@@ -42,8 +42,9 @@ class AllPendingJobs extends Component {
 
   render() {
     const jobcard = this.state.PendingJobs?.map(it => {
+      console.log(it);
       return (
-        <Link key={it.jobId} to={"/approvejob/" + it._id}>
+        <Link key={it.jobId} to={"/pending-approvals/" + it._id}>
           <JobCard details={it} />
         </Link>
       );

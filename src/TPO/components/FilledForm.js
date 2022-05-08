@@ -1,15 +1,12 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import { useForm } from "react-hook-form";
-import Footer from "../TPO/components/Footer";
-import { BASE_URL } from "../CONSTANTS";
+import Footer from './Footer';
+import { BASE_URL } from "./../../CONSTANTS";
 
-let num = 0;
+let num = -40;
 
-const Input = ({ name, type, label, register, required }) => {
-  // num++;
+const Input = ({ name, type, label, register, required , value}) => {
   num = num + 1;
-  // console.log(num);
-  // const numt= num;
   let clas = "";
   if (
     label === "jobDescription" ||
@@ -28,13 +25,14 @@ const Input = ({ name, type, label, register, required }) => {
       <div className={clas}>
         <label>
           {num / 2}. {name}
-          {required ? <sup>*</sup> : <sup></sup>}
         </label>
         <textarea
           type={type}
           required={required}
           {...register(label, { required })}
           placeholder={name}
+          disabled
+          value={value}
         />
       </div>
     );
@@ -44,53 +42,85 @@ const Input = ({ name, type, label, register, required }) => {
       <div className={clas}>
         <label>
           {num / 2}. {name}
-          {required ? <sup>*</sup> : <sup></sup>}
         </label>
         <input
           type={type}
           required={required}
           {...register(label, { required })}
           placeholder={name}
+          disabled
+          value={value}
         />
       </div>
     );
   }
 };
 
-const AddJob = () => {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = async data => {
-    // console.log(data);
-    const result = await fetch(`${BASE_URL}/add-job`, {
-      method: "post",
+const getFormDetails = async (id) => {
+  try {
+    const data = await fetch(`${BASE_URL}/tpo/pendingjob/${id}`, {
+      method: 'get',
       headers: {
-        "Content-Type": "application/json",
+        Authorization:
+          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
       },
-      body: JSON.stringify(data),
-    });
-    const retData = await result.json();
-    // console.log("data", retData);
-    if (result.status === 200) alert("Job Added Successfully");
-    else alert("Addition of Job Unsuccessful");
-  };
+    }).then((val) => val.json());
+
+    // console.log('data : ', data);
+    // data.forEach(e => {
+    //   if(e._id == id ){
+    //     // console.log(e);
+    //     return data;
+    //   }
+    // });
+    return data;
+  } catch (err) {
+    console.error('Error in getting Job Details', err);
+  }
+};
+
+
+
+
+const FilledForm = () => {
+  const [formData,setFormData] = useState("");
+
+  useEffect(async () => {
+    const x = window.location.pathname.split('/').pop();
+    console.log(x );  
+
+    const data = await getFormDetails(x);
+    await setFormData(data);
+    // console.log("formdata", formData)
+  }, []);
+
+  // const acceptJob = async () => {
+  //   console.log("id", formData._id)
+  //   const data = await fetch(`${BASE_URL}/tpo/approvejob/${formData._id}`, {
+  //     method: 'post',
+  //     headers: {
+  //       Authorization:
+  //         'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+  //     },
+  //   }).then((val) => val.json());
+  
+  //   console.log(data);
+  //   alert("job added")
+  //   window.location.pathname = "pending-approvals"
+  // }
+
+
+  const { register, handleSubmit } = useForm();
 
   return (
     <div className="flex flex-col overflow-hidden">
       {/*  Page content */}
       <div className="AddJob__section">
         <div className="AddJob__section-heading">
-          <img
-            className="AddJob__section-heading"
-            src="/images/logo-iiitl.png"
-          />
-          <h3>Add Job</h3>
+          <h3>Job Details</h3>
         </div>
-        <p className="AddJob__section-para">
-          <sup>*</sup> marked are required
-        </p>
         <main className="AddJob__container flex-grow">
-          <form className="AddJob__form" onSubmit={handleSubmit(onSubmit)}>
+          <form className="AddJob__form">
             <div>
               <Input
                 type="string"
@@ -98,6 +128,7 @@ const AddJob = () => {
                 label="companyName"
                 register={register}
                 required
+                value={formData.companyName}
               />
               <Input
                 type="string"
@@ -105,12 +136,14 @@ const AddJob = () => {
                 label="CompanyWebsite"
                 register={register}
                 required
+                value={formData.companyName}
               />
               <Input
                 type="string"
                 name="Job ID"
                 label="jobID"
                 register={register}
+                value={formData.jobId}
               />
               <Input
                 type="textarea"
@@ -118,6 +151,7 @@ const AddJob = () => {
                 label="aboutCompany"
                 register={register}
                 required
+                value={formData.aboutCompany}
               />
               <Input
                 type="string"
@@ -125,6 +159,7 @@ const AddJob = () => {
                 label="jobRole"
                 register={register}
                 required
+                value={formData.jobRole}
               />
               <Input
                 type="number"
@@ -132,12 +167,14 @@ const AddJob = () => {
                 label="package"
                 register={register}
                 required
+                value={formData.package}
               />
               <Input
                 type="string"
                 name="Posting Location"
                 label="postingLocation"
                 register={register}
+                value={formData.postingLocation}
               />
               <Input
                 type="string"
@@ -145,6 +182,7 @@ const AddJob = () => {
                 label="minCgpa"
                 register={register}
                 required
+                value={formData.minCgpa}
               />
               <Input
                 type="string"
@@ -153,6 +191,7 @@ const AddJob = () => {
                 register={register}
                 required
                 placeholder="Ex - 2021, 2023"
+                value={formData.maxBacklogsAllowed}
               />
               <Input
                 type="string"
@@ -160,12 +199,14 @@ const AddJob = () => {
                 label="batchesAllowed"
                 register={register}
                 required
+                value={formData.batchesAllowed}
               />
               <Input
                 type="string"
                 name="duration"
                 label="duration"
                 register={register}
+                value={formData.duration}
                 
               />
               <Input
@@ -173,6 +214,7 @@ const AddJob = () => {
                 name="Female Only ?"
                 label="femaleOnly"
                 register={register}
+                value={formData.onlyForFemales}
               />
               <Input
                 type="datetime-local"
@@ -180,6 +222,7 @@ const AddJob = () => {
                 label="deadlineDate"
                 register={register}
                 required
+                value={formData.deadlineDate}
               />
               <Input
                 type="string"
@@ -187,6 +230,7 @@ const AddJob = () => {
                 label="recruitmentType"
                 register={register}
                 required
+                value={formData.recruitmentType}
               />
               <Input
                 type="textarea"
@@ -194,12 +238,14 @@ const AddJob = () => {
                 label="jobDescription"
                 register={register}
                 required
+                value={formData.jobDescription}
               />
               <Input
                 type="textarea"
                 name="Expected Skills"
                 label="expectedSkills"
                 register={register}
+                value={formData.expectedSkills}
               />
               <Input
                 type="textarea"
@@ -207,6 +253,7 @@ const AddJob = () => {
                 label="yourRole"
                 register={register}
                 required
+                value={formData.yourRole}
               />
               <Input
                 type="textarea"
@@ -214,6 +261,7 @@ const AddJob = () => {
                 label="qualificationNeeded"
                 register={register}
                 required
+                value={formData.onlyForFemales}
               />
               <Input
                 type="textarea"
@@ -221,6 +269,7 @@ const AddJob = () => {
                 label="packageBreakup"
                 register={register}
                 required
+                value={formData.packageBreakup}
               />
               <Input
                 type="textarea"
@@ -228,15 +277,18 @@ const AddJob = () => {
                 label="evaluationPattern"
                 register={register}
                 required
+                value={formData.evaluationPattern}
               />
             </div>
-            <input className="AddJob__submit" type="submit" value="Submit" />
+              <div className="FilledForm__buttons">                 
+                <button className="FilledForm__submit" style={{backgroundColor:'#0371ee'}}> Accept Job</button>
+                <button className="FilledForm__submit"> Reject Job</button>
+              </div>
           </form>
         </main>
       </div>
-      <Footer />
     </div>
   );
 };
 
-export default AddJob;
+export default FilledForm;

@@ -115,7 +115,7 @@ export default function Login({ setToken }) {
 
               <div className="max-w-sm mx-auto my-1 text-center pb-12 md:pb-20">
                 <h5>Brought to you by</h5>
-                <h4 className="h4">Automation Cell - DARG IIITL</h4>
+                <h4 className="h4">Automation Cell - WCARL IIITL</h4>
               </div>
             </div>
           </div>
