@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Footer from "./components/Footer";
+import Footer from "../TPO/components/Footer";
 
 let num = 0;
 

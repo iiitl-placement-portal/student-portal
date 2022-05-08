@@ -8,7 +8,7 @@ import TPOApp from './TPOApp';
 import Login from './components/Login/Login';
 import useToken from './components/App/useToken';
 import ForgotPassword from './components/ForgotPassword';
-import AddJob from './TPO/AddJob';
+import AddJob from './pages/AddJob';
 
 import './css/style.scss';
 import './css/styles.css';

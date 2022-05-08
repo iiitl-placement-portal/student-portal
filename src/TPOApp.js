@@ -12,7 +12,6 @@ import useToken from "./components/App/useToken";
 import Header from "./TPO/components/Header";
 import Footer from "./TPO/components/Footer";
 import Dashboard from "./TPO/Dashboard";
-import AddJob from "./TPO/AddJob";
 import JobProfile from "./TPO/JobProfile";
 import StudentProfile from "./TPO/StudentProfile";
 import AllStudents from "./TPO/AllStudents";
@@ -87,10 +86,6 @@ function TPOApp() {
 
         <Route exact path="/queries">
           <Queries />
-        </Route>
-
-        <Route exact path="/add-job">
-          <AddJob />
         </Route>
 
         <Route exact path="/pending-approvals">
