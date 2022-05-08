@@ -44,8 +44,30 @@ class AllPendingJobs extends Component {
     const jobcard = this.state.PendingJobs?.map(it => {
       console.log(it);
       return (
-        <Link key={it.jobId} to={"/pending-approvals/" + it._id}>
-          <JobCard details={it} />
+        <Link
+          key={it.jobId}
+          to={"/pending-approvals/" + it._id}
+          style={{ margin: "5px auto 10px" }}
+        >
+          <div className="flex flex-col">
+            <JobCard details={it} />
+            <button
+              style={{
+                backgroundColor: "#1a5f99",
+                width: "90%",
+                margin: "auto",
+                height: "20%",
+                padding: "5px",
+                marginTop: "-20px",
+                borderBottomLeftRadius: "60%",
+                borderBottomRightRadius: "60%",
+                zIndex: 1,
+                color: "rgba(255, 255, 255, 0.9)",
+              }}
+            >
+              Review Job Data Filled by Company
+            </button>
+          </div>
         </Link>
       );
     });

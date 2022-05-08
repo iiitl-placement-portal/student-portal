@@ -6,12 +6,7 @@ const PendingApproval = () => {
   return (
     <div className="flex flex-col overflow-hidden">
       {/*  Page content */}
-      <div className="jobApproval__section">
-        <div className="jobApproval__section-heading">
-          <h3>Pending Approval</h3>
-        </div>
-      </div>
-      <AllPendingJobs />
+      <AllPendingJobs title={"Pending Approvals"} />
     </div>
   );
 };
