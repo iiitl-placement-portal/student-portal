@@ -19,7 +19,7 @@ import CompanyProfile from './TPO/CompanyProfile';
 import JobProfile from './TPO/JobProfile';
 import StudentProfile from './TPO/StudentProfile';
 import AllStudents from './TPO/AllStudents';
-
+import Queries from './TPO/Queries';
 function TPOApp() {
   const location = useLocation();
 
@@ -87,6 +87,9 @@ function TPOApp() {
 
         <Route exact path="/add-company">
           <AddCompany />
+        </Route>
+        <Route exact path="/queries">
+          <Queries />
         </Route>
         <Route exact path="/add-job">
           <AddJob />
