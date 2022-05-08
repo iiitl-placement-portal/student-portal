@@ -90,13 +90,6 @@ const AddJob = () => {
               />
               <Input
                 type="string"
-                name="ideal Candidate"
-                label="idealCandidate"
-                register={register}
-                required
-              />
-              <Input
-                type="string"
                 name="Expected Skills"
                 label="expectedSkills"
                 register={register}
@@ -121,7 +114,6 @@ const AddJob = () => {
                 name="Posting Location"
                 label="postingLocation"
                 register={register}
-                
               />
               <Input
                 type="number"
@@ -143,13 +135,6 @@ const AddJob = () => {
                 label="duration"
                 register={register}
                 
-              />
-              <Input
-                type="number"
-                name="eligibility"
-                label="eligibility"
-                register={register}
-                required
               />
               <Input
                 type="string"

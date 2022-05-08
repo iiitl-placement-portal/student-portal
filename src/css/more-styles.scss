@@ -277,7 +277,7 @@
       // flex: 1;
       margin: 2rem;
       // width: 20rem;
-      // height: 39rem;
+      max-height: 39rem;
       background-color: rgba(255, 255, 255, 0);
       flex: 1;
       // background-color: #1a5f99;
@@ -474,3 +474,26 @@
 }
 
 
+.jobApproval {
+  &__section{
+    // background-color: rgb(204, 255, 191);
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+
+
+    &-heading{
+      h3{
+        font-size: 1.9rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        // padding: 0.4rem;
+        padding: 0.5rem;
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+}

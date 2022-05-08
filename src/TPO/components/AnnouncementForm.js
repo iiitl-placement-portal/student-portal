@@ -16,7 +16,7 @@ const AnnouncementForm = ( {button,type}) => {
   }else{
     return (
       <form className='form__ui' onSubmit={handleSubmit(onSubmit)}>
-        <input className='form__ui-send' type="email" placeholder="recieverMail" {...register("recieverMail", {required: true})} />
+        <input className='form__ui-send' type="email" placeholder="Reciever Mail/ Phone Number/ Id" {...register("recieverMail", {required: true})} />
         <textarea {...register("Announcement Message", {required: true})} />
 
         <input type="submit" className='formSend' value={button}/>
