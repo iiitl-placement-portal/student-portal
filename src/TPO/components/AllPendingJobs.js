@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import JobCard from "../../components/JobCard";
-import {BASE_URL} from "./../../CONSTANTS";
+import { BASE_URL } from "./../../CONSTANTS";
 
 async function getAllJobs() {
   try {
-    const data = await fetch(`${BASE_URL}/jobs/all`, {
+    const data = await fetch(`${BASE_URL}/tpo/pendingjob`, {
       headers: {
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("token")).token,
@@ -25,31 +25,29 @@ class AllPendingJobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      JobsAll: [],
+      PendingJobs: [],
     };
   }
 
   componentDidMount() {
     getAllJobs()
-      .then((res) => {
+      .then(res => {
         // console.log(res);
-        this.setState({ JobsAll: res });
+        this.setState({ PendingJobs: res });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   }
 
   render() {
-    const jobcard = "das" 
-    // this.state.JobsAll.map((it) => {
-      // console.log(it)
-      // return (
-      //   <Link key={it.jobId} to={"/jobs/" + it._id}>
-      //     <JobCard details={it} />
-      //   </Link>
-      // );
-    // });
+    const jobcard = this.state.PendingJobs?.map(it => {
+      return (
+        <Link key={it.jobId} to={"/approvejob/" + it._id}>
+          <JobCard details={it} />
+        </Link>
+      );
+    });
 
     return (
       <div className="flex flex-col overflow-hidden">

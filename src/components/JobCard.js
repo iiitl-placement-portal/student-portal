@@ -34,7 +34,7 @@ const JobCard = (props) => {
             <FontAwesomeIcon icon={faUserTie} className="fa-icon" />
             <div className="company-details-value">
               <p>Looking for</p>
-              <h3>{props.details.jobDescription}</h3>
+              <h3>{props.details.jobRole}</h3>
             </div>
           </div>
           <div className="company-details">

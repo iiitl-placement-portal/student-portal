@@ -1,13 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../TPO/components/Footer";
+import { BASE_URL } from "../CONSTANTS";
 
 let num = 0;
 
 const Input = ({ name, type, label, register, required }) => {
   // num++;
   num = num + 1;
-  console.log(num);
+  // console.log(num);
   // const numt= num;
   let clas = "";
   if (
@@ -56,8 +57,19 @@ const Input = ({ name, type, label, register, required }) => {
 const AddJob = () => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async data => {
+    // console.log(data);
+    const result = await fetch(`${BASE_URL}/add-job`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const retData = await result.json();
+    // console.log("data", retData);
+    if (result.status === 200) alert("Job Added Successfully");
+    else alert("Addition of Job Unsuccessful");
   };
 
   return (
@@ -65,8 +77,11 @@ const AddJob = () => {
       {/*  Page content */}
       <div className="AddJob__section">
         <div className="AddJob__section-heading">
-          <img className="AddJob__section-heading" src="/images/logo-iiitl.png" />
-          <h3 >Add Job</h3>
+          <img
+            className="AddJob__section-heading"
+            src="/images/logo-iiitl.png"
+          />
+          <h3>Add Job</h3>
         </div>
         <p className="AddJob__section-para">
           <sup>*</sup> marked are required
@@ -77,14 +92,14 @@ const AddJob = () => {
               <Input
                 type="string"
                 name="Company Name"
-                label="CompanyName"
+                label="companyName"
                 register={register}
                 required
               />
               <Input
                 type="string"
                 name="Job ID"
-                label="jobID"
+                label="jobId"
                 register={register}
                 required
               />
@@ -93,7 +108,6 @@ const AddJob = () => {
                 name="Expected Skills"
                 label="expectedSkills"
                 register={register}
-                
               />
               <Input
                 type="date"
@@ -134,7 +148,6 @@ const AddJob = () => {
                 name="duration"
                 label="duration"
                 register={register}
-                
               />
               <Input
                 type="string"
@@ -205,7 +218,6 @@ const AddJob = () => {
                 register={register}
                 required
               />
-              
             </div>
             <input className="AddJob__submit" type="submit" value="Submit" />
           </form>
