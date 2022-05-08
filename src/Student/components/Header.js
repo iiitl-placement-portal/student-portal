@@ -100,6 +100,14 @@ function Header(props) {
                     Applied Jobs
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/query"
+                    className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+                  >
+                    Ask Query
+                  </Link>
+                </li>
                 <li
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
                   onClick={() => {

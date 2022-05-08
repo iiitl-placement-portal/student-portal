@@ -18,6 +18,7 @@ import JobProfile from './Student/JobProfile';
 import EditUser from './Student/EditUser';
 
 import useToken from './components/App/useToken';
+import Queries from './Student/Queries';
 
 function StudentApp() {
   const location = useLocation();
@@ -59,6 +60,9 @@ function StudentApp() {
         </Route>
         <Route exact path="/applied-jobs">
           <AppliedJobs title="Applied Jobs" />
+        </Route>
+        <Route exact path="/query">
+          <Queries title="Ask Query" />
         </Route>
         <Route exact path="/jobs/:id">
           <JobProfile />

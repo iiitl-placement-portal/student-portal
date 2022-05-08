@@ -48,6 +48,7 @@
     display: flex;
     flex-wrap: wrap;
     // flex-direction:
+    justify-content: space-between;
     width: 87%;
     margin: 0 auto;
     // background-color: rgb(205, 155, 102);
@@ -59,6 +60,7 @@
     margin: 0 auto;
     // background-color: rgba(232, 240, 247, 0.497);
     width: 80%;
+    margin-top: 5rem;
 
     
 
@@ -69,7 +71,6 @@
       text-align: center;
       font-weight: 700;
       // transform: scale(1.2, 1);
-      // margin-top: 5rem;
     }
     &-para {
       color: slategrey;
@@ -225,10 +226,20 @@
     margin: 7rem auto 2rem;
   }
   &__stats{
-    // background-color: rgb(240, 140, 140);
+    background-color: white;
     height: 30rem;
     // margin: 0;
     padding: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+
+    .piechart {
+      width: 50%;
+      height: 45%;
+    }
   }
   &__calendar{
     height: 90rem;
@@ -267,8 +278,9 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap:wrap-reverse;
+    flex-direction: row;
     
     // background-color: rgb(140, 140, 248);
     
@@ -494,6 +506,83 @@
         padding: 0.5rem;
         color: rgb(0, 0, 0);
       }
+    }
+  }
+}
+
+
+.stuquery{
+  &__section{
+    // background-color: aqua;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    // background-color: rgb(243, 122, 122);
+    margin-top: 8rem;
+
+    &-heading {
+      text-transform: uppercase;
+      font-size: 2rem;
+      font-weight: 700;
+      transform: scale(1.2, 1);
+      h3{
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        // padding: 0.4rem;
+        padding: 0.5rem;
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    // background-color: rgb(142, 209, 104);
+
+    textarea{
+      height: 20rem;  
+      width:100%;
+      margin-top: 2rem;
+      font-size: 1.4rem;
+
+    }
+    input{
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #0371ee;
+      width: 10rem;
+      align-self: center;
+      margin-top: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+  }
+
+
+}
+
+
+.FilledForm{
+  &__buttons{
+    width: 50%;
+    button {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #ff0a0a;
+      height: 3rem;
+      width: 30rem !important;
+      padding: 0.4rem 0.7rem;
+      cursor: pointer; 
+
     }
   }
 }

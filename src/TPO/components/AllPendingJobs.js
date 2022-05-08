@@ -42,10 +42,11 @@ class AllPendingJobs extends Component {
 
   render() {
     const jobcard = this.state.PendingJobs?.map(it => {
+      console.log(it);
       return (
         <Link
           key={it.jobId}
-          to={"/approvejob/" + it._id}
+          to={"/pending-approvals/" + it._id}
           style={{ margin: "5px auto 10px" }}
         >
           <div className="flex flex-col">

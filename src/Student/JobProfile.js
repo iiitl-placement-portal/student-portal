@@ -60,6 +60,7 @@ class JobProfile extends Component {
 
   componentDidMount() {
     const url = window.location.pathname;
+    
     const jobId = url.replace('/jobs/', '');
     // this.setState({id:ret});
 
