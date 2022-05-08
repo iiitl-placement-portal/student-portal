@@ -5,7 +5,55 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import "./css/table.css"
 
-const Table = ({ tableData, headingColumns, title, breakOn = 'medium',jsonToCsv }) => {
+import { ExportJsonCsv } from 'react-export-json-csv';
+
+
+
+const Table = ({ tableData, headingColumns, title, breakOn = 'medium'}) => {
+  console.log(headingColumns);
+  const headers = [
+    {
+      key: 'id',
+      name: 'ID',
+    },
+    {
+      key: 'fname',
+      name: 'First Name',
+    },
+  ]
+  // {
+  //   rollno: "LXX20XXXX",
+  //     name: "Lewis Hamilton",
+  //     backlogs: "0",
+  //     cgpa: "10",
+  //     status: "unplaced",
+  //     profile: ":id",
+  // }
+  
+  const headingColumnsCsv = [
+    {
+      key: 'rollno',
+      name: 'Roll No',
+    },
+    {
+      key: 'name',
+      name: 'Name',
+    },
+    {
+      key: 'backlogs',
+      name: 'Backlogs',
+    },
+    {
+      key: 'cgpa',
+      name: 'CGPA',
+    },
+    {
+      key: 'status',
+      name: 'Placement Status',
+    }
+  ]
+
+
   let tableClass = 'table-container__table';
 
   if(breakOn === 'small') {
@@ -61,7 +109,9 @@ const Table = ({ tableData, headingColumns, title, breakOn = 'medium',jsonToCsv 
     <div className="table-container">
       <div className="table-container__title">
         <h2>{title}</h2>
-        <button onClick={jsonToCsv} >Download Data</button>
+        {/* <button onClick={jsonToCsv} >Download Data</button> */}
+        <ExportJsonCsv headers={headingColumnsCsv} items={tableData}>Download Data</ExportJsonCsv>
+        
       </div>
       <table className={tableClass}>
         <thead>
