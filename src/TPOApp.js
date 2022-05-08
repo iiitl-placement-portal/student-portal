@@ -18,7 +18,7 @@ import StudentProfile from "./TPO/StudentProfile";
 import AllStudents from "./TPO/AllStudents";
 import Queries from "./TPO/Queries";
 import AllJobs from "./TPO/AllJobs";
-import JobApproval from './TPO/JobApproval';
+import PendingApproval from './TPO/PendingApproval';
 function TPOApp() {
   const location = useLocation();
 
@@ -55,7 +55,7 @@ function TPOApp() {
     },
     {
       name: 'Pending Approvals',
-      nav: 'job-approval',
+      nav: 'pending-approvals',
     },
   ];
 
@@ -93,8 +93,8 @@ function TPOApp() {
           <AddJob />
         </Route>
 
-        <Route exact path="/job-approval">
-          <JobApproval />
+        <Route exact path="/pending-approvals">
+          <PendingApproval />
         </Route>
 
         <Route exact path="/login">
