@@ -9,14 +9,15 @@ import AOS from "aos";
 import Login from "./components/Login/Login";
 import useToken from "./components/App/useToken";
 
-import Header from './TPO/components/Header';
-import Footer from './TPO/components/Footer';
-import Dashboard from './TPO/Dashboard';
-import AddJob from './TPO/AddJob';
-import JobProfile from './TPO/JobProfile';
-import StudentProfile from './TPO/StudentProfile';
-import AllStudents from './TPO/AllStudents';
-import Queries from './TPO/Queries';
+import Header from "./TPO/components/Header";
+import Footer from "./TPO/components/Footer";
+import Dashboard from "./TPO/Dashboard";
+import AddJob from "./TPO/AddJob";
+import JobProfile from "./TPO/JobProfile";
+import StudentProfile from "./TPO/StudentProfile";
+import AllStudents from "./TPO/AllStudents";
+import Queries from "./TPO/Queries";
+import AllJobs from "./TPO/AllJobs";
 function TPOApp() {
   const location = useLocation();
 
