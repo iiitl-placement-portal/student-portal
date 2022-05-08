@@ -133,7 +133,6 @@ class AllStudents extends Component {
               tableData={data}
               headingColumns={tableFields}
               title="All Students"
-              jsonToCsv={this.downloadAll}
             />
           </main>
         </div>
