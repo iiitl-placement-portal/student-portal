@@ -16,15 +16,17 @@
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "chart.js": "^3.7.1",
     "cruip-js-toolkit": "^1.0.3",
     "jsonwebtoken": "^8.5.1",
     "luxon": "^1.27.0",
     "moment": "^2.29.1",
-    "node-sass": "^7.0.1",
     "postcss": "^8.2.9",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.1.0",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.8.0",
+    "react-minimal-pie-chart": "^8.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.1",
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.51.0"
   }
 }

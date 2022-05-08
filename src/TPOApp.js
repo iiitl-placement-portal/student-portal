@@ -9,15 +9,14 @@ import AOS from "aos";
 import Login from "./components/Login/Login";
 import useToken from "./components/App/useToken";
 
-import Header from "./TPO/components/Header";
-import Footer from "./TPO/components/Footer";
-import Dashboard from "./TPO/Dashboard";
-import AddJob from "./TPO/AddJob";
-import JobProfile from "./TPO/JobProfile";
-import StudentProfile from "./TPO/StudentProfile";
-import AllStudents from "./TPO/AllStudents";
-import AllJobs from "./TPO/AllJobs";
-
+import Header from './TPO/components/Header';
+import Footer from './TPO/components/Footer';
+import Dashboard from './TPO/Dashboard';
+import AddJob from './TPO/AddJob';
+import JobProfile from './TPO/JobProfile';
+import StudentProfile from './TPO/StudentProfile';
+import AllStudents from './TPO/AllStudents';
+import Queries from './TPO/Queries';
 function TPOApp() {
   const location = useLocation();
 
@@ -78,6 +77,10 @@ function TPOApp() {
 
         <Route exact path="/studentprofile/:id">
           <StudentProfile />
+        </Route>
+
+        <Route exact path="/queries">
+          <Queries />
         </Route>
 
         <Route exact path="/add-job">

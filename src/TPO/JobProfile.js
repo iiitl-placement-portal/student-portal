@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import moment from "moment";
+import Table from "./components/Table";
 
 import SvgIcon from "../components/SvgIcon";
 import { BASE_URL } from "../CONSTANTS";
 
-const getJobDetails = async url => {
+const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
+
+const getJobDetails = async (url) => {
   try {
     const data = await fetch(`${BASE_URL}${url}`, {
       method: "get",
@@ -53,7 +56,7 @@ class JobProfile extends Component {
   render() {
     const students = this.state.jobDetails.studentsApplied.map(val => {
       return (
-        <li>
+        <li className="students__applyCard">
           <Link to={`/studentprofile/${val._id}`}>
             {val.fullName}, {val.enrollmentNumber}, {val.cgpa}
             {val.approvedByTPO ? "Approved" : "Not approved"}
@@ -165,8 +168,13 @@ class JobProfile extends Component {
             </p>
           </div>
         </div>
-        <div className="students-applied">
+        <div className="students__applied">
           <ul>{students}</ul>
+          {/* <Table
+              tableData={this.state.jobDetails.studentsApplied}
+              headingColumns={tableFields}
+              title="All Students"
+            /> */}
         </div>
       </div>
     );

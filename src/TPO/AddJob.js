@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Footer from "./components/Footer";
 
 let num = 0;
 
@@ -10,9 +11,12 @@ const Input = ({ name, type, label, register, required }) => {
   // const numt= num;
   let clas = "";
   if (
-    label === "description" ||
+    label === "jobDescription" ||
     label === "qualificationNeeded" ||
-    label === "role"
+    label === "yourRole" ||
+    label === "aboutCompany" ||
+    label === "packageBreakup" ||
+    label === "evaluationPattern"
   ) {
     clas = "AddJob__form-text";
 
@@ -60,7 +64,10 @@ const AddJob = () => {
     <div className="flex flex-col overflow-hidden">
       {/*  Page content */}
       <div className="AddJob__section">
-        <h3 className="AddJob__section-heading">Add Job</h3>
+        <div className="AddJob__section-heading">
+          <img className="AddJob__section-heading" src="/images/logo-iiitl.png" />
+          <h3 >Add Job</h3>
+        </div>
         <p className="AddJob__section-para">
           <sup>*</sup> marked are required
         </p>
@@ -76,50 +83,92 @@ const AddJob = () => {
               />
               <Input
                 type="string"
-                name="Job Code"
-                label="jobCode"
+                name="Job ID"
+                label="jobID"
                 register={register}
                 required
               />
               <Input
-                type="datetime-local"
+                type="string"
+                name="ideal Candidate"
+                label="idealCandidate"
+                register={register}
+                required
+              />
+              <Input
+                type="string"
+                name="Expected Skills"
+                label="expectedSkills"
+                register={register}
+                
+              />
+              <Input
+                type="date"
                 name="Deadline"
-                label="deadline"
+                label="deadlineDate"
                 register={register}
                 required
               />
               <Input
                 type="string"
-                name="Looking for"
-                label="lookingFor"
+                name="Job Role"
+                label="jobRole"
                 register={register}
                 required
               />
               <Input
                 type="string"
-                name="location"
-                label="location"
+                name="Posting Location"
+                label="postingLocation"
                 register={register}
-                required
+                
               />
               <Input
-                type="string"
-                name="Salary"
-                label="salary"
+                type="number"
+                name="Package"
+                label="package"
                 register={register}
                 required
               />
               <Input
                 type="string"
                 name="Job Type"
-                label="jobType"
+                label="recruitmentType"
                 register={register}
                 required
               />
               <Input
                 type="string"
+                name="duration"
+                label="duration"
+                register={register}
+                
+              />
+              <Input
+                type="number"
                 name="eligibility"
                 label="eligibility"
+                register={register}
+                required
+              />
+              <Input
+                type="string"
+                name="minCgpa"
+                label="minCgpa"
+                register={register}
+                required
+              />
+              <Input
+                type="string"
+                name="Max Backlogs Allowed"
+                label="maxBacklogsAllowed"
+                register={register}
+                required
+              />
+              <Input
+                type="number"
+                name="Batches Allowed"
+                label="batchesAllowed"
                 register={register}
                 required
               />
@@ -132,7 +181,21 @@ const AddJob = () => {
               <Input
                 type="text"
                 name="Description"
-                label="description"
+                label="jobDescription"
+                register={register}
+                required
+              />
+              <Input
+                type="textarea"
+                name="About Company"
+                label="aboutCompany"
+                register={register}
+                required
+              />
+              <Input
+                type="textarea"
+                name="Your Role"
+                label="yourRole"
                 register={register}
                 required
               />
@@ -145,16 +208,25 @@ const AddJob = () => {
               />
               <Input
                 type="textarea"
-                name="Job Role"
-                label="role"
+                name="Evaluation Pattern"
+                label="evaluationPattern"
                 register={register}
                 required
               />
+              <Input
+                type="textarea"
+                name="packageBreakup"
+                label="packageBreakup"
+                register={register}
+                required
+              />
+              
             </div>
-            <input className="AddJob__submit" type="submit" />
+            <input className="AddJob__submit" type="submit" value="Submit" />
           </form>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };

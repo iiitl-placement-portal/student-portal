@@ -47,9 +47,6 @@
   &__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: space-between;
     // flex-direction:
     width: 87%;
     margin: 0 auto;
@@ -61,42 +58,18 @@
   &__section {
     margin: 0 auto;
     // background-color: rgba(232, 240, 247, 0.497);
-    // width: 100%;
+    width: 80%;
 
-    background-image: linear-gradient(
-        135deg,
-        transparent 0%,
-        transparent 17%,
-        rgba(87, 146, 234, 0.21) 17%,
-        rgba(87, 146, 234, 0.21) 59%,
-        transparent 59%,
-        transparent 64%,
-        rgba(149, 170, 236, 0.29) 64%,
-        rgba(149, 170, 236, 0.29) 100%
-      ),
-      linear-gradient(
-        45deg,
-        transparent 0%,
-        transparent 2%,
-        rgba(189, 221, 255, 0.47) 2%,
-        rgba(189, 221, 255, 0.47) 46%,
-        rgba(114, 178, 239, 0.27) 46%,
-        rgba(114, 178, 239, 0.27) 54%,
-        transparent 54%,
-        transparent 63%,
-        rgba(170, 186, 248, 0.29) 63%,
-        rgba(170, 186, 248, 0.29) 100%
-      ),
-      linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    
 
     &-heading {
       text-transform: uppercase;
-      margin: 1rem auto;
+      margin: 0rem auto;
       font-size: 2rem;
       text-align: center;
       font-weight: 700;
-      transform: scale(1.2, 1);
-      margin-top: 5rem;
+      // transform: scale(1.2, 1);
+      // margin-top: 5rem;
     }
     &-para {
       color: slategrey;
@@ -115,34 +88,38 @@
   }
 
   &__container {
-    // background-color: rgb(205, 155, 102);
     background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 80%;
+    // box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
+    // backdrop-filter: blur(4px);
+    // -webkit-backdrop-filter: blur(4px);
+    // border-radius: 5px;
+    // border: 1px solid rgba(255, 255, 255, 0.18);
+    // width: 80%;
     margin: 3rem auto;
     // padding: 0.5rem;
+    
   }
   &__form {
     // width: 90%;
+    // background-color: rgb(205, 155, 102);
+    margin: 0rem auto;
 
     & > div {
       display: flex;
       flex-wrap: wrap;
       padding: 0.5rem;
       // flex-direction: column;
-      // margin: 0 auto;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: space-between;
+      width: 100%;
+      // background-color: rgb(77, 235, 127);
 
       & > div {
-        // background-color: rgb(77, 235, 127);
         display: flex;
         flex-direction: column;
-        margin: 1rem auto;
+        justify-content: space-between;
+        margin: 1rem;
         // padding: 1rem;
 
         label {
@@ -151,6 +128,7 @@
           // color: #053771;
           font-weight: 500;
           text-transform: capitalize;
+          margin-bottom: 0.5rem;
           sup {
             color: red;
           }
@@ -159,13 +137,15 @@
 
       input,
       textarea {
-        width: 20rem;
+        background-color: rgb(238, 238, 238);
+        width: 25rem;
         height: 3rem;
         font-size: 1.1rem;
         border: none;
         outline: none !important;
+        padding: 0.6rem;
 
-        background-color: transparent;
+        // background-color: transparent;
         border-bottom: 2px solid rgb(132, 132, 132);
         // border: none;
         // outline: none;
@@ -174,13 +154,15 @@
 
     &-text {
       // flex: 2;
-      margin-left: 2rem;
+      // margin-left: 2rem;
+      width: 100%;
 
       textarea {
+        min-width:100%;
         outline: none !important;
         word-wrap: wrap;
-        height: 10rem !important;
-        width: 50rem !important ;
+        min-height: 10rem !important;
+        // width: 50rem !important ;
       }
     }
 
@@ -242,6 +224,22 @@
     // background-color: rgb(240, 140, 140);
     margin: 7rem auto 2rem;
   }
+  &__stats{
+    // background-color: rgb(240, 140, 140);
+    height: 30rem;
+    // margin: 0;
+    padding: 1rem;
+  }
+  &__calendar{
+    height: 90rem;
+    padding: 1rem;
+    min-width: 30rem;
+    &  > iframe {
+      border-radius: 1rem;
+      width: 40rem;
+      // overflow: scroll;
+    }
+  }
   &__links{
     ul{
       display: flex;
@@ -249,7 +247,7 @@
       align-items: center;
       // background-color: rgb(255, 153, 153);
       li{
-        border-radius: 3px;
+        // border-radius: 3px;
         background-color: rgb(76, 76, 76);
         margin: 1rem;
         padding: 0.3rem 0.5rem;
@@ -274,23 +272,24 @@
     
     // background-color: rgb(140, 140, 248);
     
-    &>div{
-      border-radius: 3px;
+    & > div{
+      border-radius: 10px;
       // flex: 1;
-      margin: 0.4rem;
+      margin: 2rem;
       // width: 20rem;
-      // height: 35rem;
-      // background-color: rgb(145, 191, 255);
+      // height: 39rem;
+      background-color: rgba(255, 255, 255, 0);
       flex: 1;
-      background-color: #1a5f99;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      // background-color: #1a5f99;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 5px;
       h3{
+        background-color: #1a5f99;
         font-size: 1.6rem;
         font-weight: 600;
         letter-spacing: 1px;
         // padding: 0.4rem;
         padding: 0.5rem;
-        color: white;
+        color: rgb(255, 255, 255);
       }
 
       ul{
@@ -311,12 +310,22 @@
     }
   }
   
-  // &__notif{
-  //   flex: 3;
-  // }
+  &__notif{
+    width: 50rem;
+    & > iframe {
+      height: 50rem;
+
+
+    }
+  }
   // &__approve{
   //   flex: 4;
   // }
+  &__Notification{
+    height: 100%;
+  }
+
+
 }
 
 .allStudents{
@@ -335,3 +344,133 @@
     } 
   }
 }
+
+.query {
+  &__section{
+    width: 70%;
+    // background-color: rgb(235, 245, 192);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+
+    &-heading{
+      h3{
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        // padding: 0.4rem;
+        padding: 0.5rem;
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+  &__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  &__card{
+    width: 100%;
+    
+    box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
+    -webkit-box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
+    -moz-box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
+
+    background-color: rgb(236, 236, 236);
+    padding: 1rem;
+    margin: 0.8rem;
+    border-radius: 4px;
+    h6{
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.2rem;
+    }
+    h5{
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 0.2rem;
+    }
+    &-details{
+      // height: 5rem;
+      display: flex;
+      textarea{
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+  &_submit{
+    padding: 0.2rem 0.7rem;
+    font-weight: 700;
+    border-radius: 5px;
+    // height: 5rem;
+    // width: 5rem;
+  }
+}
+
+
+
+@media screen and (max-width: 768) {
+  .query__section{
+    width: 100% !important;
+  }
+}
+
+.form{
+  &__ui{
+    margin: 1rem;
+    textarea{
+      width: 100%;
+    }
+    &-send{
+      margin-bottom: 0.2rem;
+      // height: 1.2rem;
+    }
+    .formSend{
+      background-color: #1a5f99;
+      font-size: 1.2rem;
+      padding: 0.3rem 1rem;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  &__dashboard{
+    width: 100%;
+    // background-color: rgb(198, 253, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    & > div{
+      width: 100%;
+      // background-color: #8fe7b1;
+    }
+
+  }
+  &__announcement{
+
+  }
+}
+
+.Announcement{
+  &__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__container{
+    min-height: 23rem;
+  }
+  
+  .form__mail{
+    align-self: flex-end;
+  }
+}
+
+
