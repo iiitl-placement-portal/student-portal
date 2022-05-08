@@ -111,8 +111,8 @@ const AddJob = () => {
               />
               <Input
                 type="string"
-                name="Looking for"
-                label="lookingFor"
+                name="Job Role"
+                label="jobRole"
                 register={register}
                 required
               />
