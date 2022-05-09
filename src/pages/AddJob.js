@@ -17,8 +17,8 @@ const Input = ({ name, type, label, register, required }) => {
     label === "yourRole" ||
     label === "aboutCompany" ||
     label === "packageBreakup" ||
-    label === "evaluationPattern"||
-    label === "expectedSkills" 
+    label === "evaluationPattern" ||
+    label === "expectedSkills"
     // ||
     // label === "jobRole"
   ) {
@@ -61,7 +61,7 @@ const AddJob = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async data => {
-    // console.log(data);
+    console.log(data);
     const result = await fetch(`${BASE_URL}/add-job`, {
       method: "post",
       headers: {
@@ -109,7 +109,7 @@ const AddJob = () => {
               <Input
                 type="string"
                 name="Job ID"
-                label="jobID"
+                label="jobId"
                 register={register}
               />
               <Input
@@ -166,7 +166,6 @@ const AddJob = () => {
                 name="duration"
                 label="duration"
                 register={register}
-                
               />
               <Input
                 type="checkbox"

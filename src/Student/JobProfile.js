@@ -1,51 +1,51 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
-import moment from 'moment';
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
+import moment from "moment";
 
-import SvgIcon from '../components/SvgIcon';
-import {BASE_URL} from "../CONSTANTS";
+import SvgIcon from "../components/SvgIcon";
+import { BASE_URL } from "../CONSTANTS";
 
-const getJobDetails = async (id) => {
+const getJobDetails = async id => {
   try {
     const data = await fetch(`${BASE_URL}/jobs/${id}`, {
-      method: 'get',
+      method: "get",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
-    }).then((val) => val.json());
+    }).then(val => val.json());
 
     // console.log('data', data);
 
     return data;
   } catch (err) {
-    console.error('Error in getting Job Details', err);
+    console.error("Error in getting Job Details", err);
   }
 };
 
-const applyForJob = async (id) => {
+const applyForJob = async id => {
   // console.log("applying", id);
   try {
     const data = await fetch(`${BASE_URL}/jobs/${id}/apply`, {
-      method: 'post',
+      method: "post",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
     });
     // console.log(data);
     if (data.status === 200) {
       alert(
-        'Application submitted Successfully.\nPage will automatically reload to synchronise the status after the alert box is closed.'
+        "Application submitted Successfully.\nPage will automatically reload to synchronise the status after the alert box is closed."
       );
     } else {
-      alert('Application could not be submitted due to technical reasons');
+      alert("Application could not be submitted due to technical reasons");
     }
     window.location.reload();
     return data;
   } catch (err) {
-    console.error('Error in applying for Job', err);
+    console.error("Error in applying for Job", err);
   }
 };
 
@@ -53,18 +53,18 @@ class JobProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
-      jobDetails: { company: {} },
+      id: "",
+      jobDetails: {},
     };
   }
 
   componentDidMount() {
     const url = window.location.pathname;
-    
-    const jobId = url.replace('/jobs/', '');
+
+    const jobId = url.replace("/jobs/", "");
     // this.setState({id:ret});
 
-    getJobDetails(jobId).then((val) => {
+    getJobDetails(jobId).then(val => {
       this.setState({
         jobDetails: val,
         id: jobId,
@@ -84,11 +84,11 @@ class JobProfile extends Component {
             <div className="company-details-container">
               <p className="company-name">
                 <a
-                  href={this.state.jobDetails.company.companyWebsite}
+                  href={this.state.jobDetails.companyWebsite}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {this.state.jobDetails.company.companyName}
+                  {this.state.jobDetails.companyName}
 
                   <FontAwesomeIcon
                     icon={faArrowAltCircleRight}
@@ -132,7 +132,7 @@ class JobProfile extends Component {
                 <span className="description-titles">
                   About Company and more info :{" "}
                 </span>
-                {this.state.jobDetails.company.aboutCompany}
+                {this.state.jobDetails.aboutCompany}
                 berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
                 Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
                 Koordination dieser Bestellung hinter den Kulissen wollen wir
