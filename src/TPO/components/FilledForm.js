@@ -1,12 +1,39 @@
-import React ,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Footer from './Footer';
+import Footer from "./Footer";
 import { BASE_URL } from "./../../CONSTANTS";
 
-let num = -40;
+const acceptJob = async id => {
+  console.log("id", id);
+  const data = await fetch(`${BASE_URL}/tpo/approvejob/${id}`, {
+    method: "post",
+    headers: {
+      Authorization:
+        "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+    },
+  }).then(val => val.json());
 
-const Input = ({ name, type, label, register, required , value}) => {
-  num = num + 1;
+  console.log(data);
+  alert("job added");
+  window.location.pathname = "pending-approvals";
+};
+
+const rejectJob = async id => {
+  console.log("id", id);
+  const data = await fetch(`${BASE_URL}/tpo/rejectjob/${id}`, {
+    method: "delete",
+    headers: {
+      Authorization:
+        "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+    },
+  }).then(val => val.json());
+
+  console.log(data);
+  alert("job rejected");
+  window.location.pathname = "pending-approvals";
+};
+
+const Input = ({ name, type, label, register, required, value }) => {
   let clas = "";
   if (
     label === "jobDescription" ||
@@ -14,8 +41,8 @@ const Input = ({ name, type, label, register, required , value}) => {
     label === "yourRole" ||
     label === "aboutCompany" ||
     label === "packageBreakup" ||
-    label === "evaluationPattern"||
-    label === "expectedSkills" 
+    label === "evaluationPattern" ||
+    label === "expectedSkills"
     // ||
     // label === "jobRole"
   ) {
@@ -23,9 +50,7 @@ const Input = ({ name, type, label, register, required , value}) => {
 
     return (
       <div className={clas}>
-        <label>
-          {num / 2}. {name}
-        </label>
+        <label>{name}</label>
         <textarea
           type={type}
           required={required}
@@ -40,9 +65,7 @@ const Input = ({ name, type, label, register, required , value}) => {
     if (type === "checkbox") clas = "AddJob__form-checkbox";
     return (
       <div className={clas}>
-        <label>
-          {num / 2}. {name}
-        </label>
+        <label>{name}</label>
         <input
           type={type}
           required={required}
@@ -56,17 +79,18 @@ const Input = ({ name, type, label, register, required , value}) => {
   }
 };
 
-const getFormDetails = async (id) => {
+const getFormDetails = async id => {
   try {
     const data = await fetch(`${BASE_URL}/tpo/pendingjob/${id}`, {
-      method: 'get',
+      method: "get",
       headers: {
         Authorization:
-          'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
       },
-    }).then((val) => val.json());
+    }).then(val => val.json());
 
-    // console.log('data : ', data);
+    if (!data) window.location.pathname = "pending-approvals";
+    // console.log("data : ", data);
     // data.forEach(e => {
     //   if(e._id == id ){
     //     // console.log(e);
@@ -75,40 +99,21 @@ const getFormDetails = async (id) => {
     // });
     return data;
   } catch (err) {
-    console.error('Error in getting Job Details', err);
+    console.error("Error in getting Job Details", err);
   }
 };
 
-
-
-
 const FilledForm = () => {
-  const [formData,setFormData] = useState("");
+  const [formData, setFormData] = useState("");
 
   useEffect(async () => {
-    const x = window.location.pathname.split('/').pop();
-    console.log(x );  
+    const x = window.location.pathname.split("/").pop();
+    console.log(x);
 
     const data = await getFormDetails(x);
     await setFormData(data);
     // console.log("formdata", formData)
   }, []);
-
-  // const acceptJob = async () => {
-  //   console.log("id", formData._id)
-  //   const data = await fetch(`${BASE_URL}/tpo/approvejob/${formData._id}`, {
-  //     method: 'post',
-  //     headers: {
-  //       Authorization:
-  //         'Bearer ' + JSON.parse(localStorage.getItem('token')).token,
-  //     },
-  //   }).then((val) => val.json());
-  
-  //   console.log(data);
-  //   alert("job added")
-  //   window.location.pathname = "pending-approvals"
-  // }
-
 
   const { register, handleSubmit } = useForm();
 
@@ -207,7 +212,6 @@ const FilledForm = () => {
                 label="duration"
                 register={register}
                 value={formData.duration}
-                
               />
               <Input
                 type="checkbox"
@@ -280,10 +284,29 @@ const FilledForm = () => {
                 value={formData.evaluationPattern}
               />
             </div>
-              <div className="FilledForm__buttons">                 
-                <button className="FilledForm__submit" style={{backgroundColor:'#0371ee'}}> Accept Job</button>
-                <button className="FilledForm__submit"> Reject Job</button>
-              </div>
+            <div className="FilledForm__buttons">
+              <button
+                className="FilledForm__submit"
+                type="submit"
+                onClick={e => {
+                  e.preventDefault();
+                  rejectJob(formData._id);
+                }}
+              >
+                Reject Job
+              </button>
+              <button
+                className="FilledForm__submit"
+                style={{ backgroundColor: "#0371ee" }}
+                type="submit"
+                onClick={e => {
+                  e.preventDefault();
+                  acceptJob(formData._id);
+                }}
+              >
+                Accept Job
+              </button>
+            </div>
           </form>
         </main>
       </div>
