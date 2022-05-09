@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
-import { useForm } from "react-hook-form";
+import React, { Component } from "react";
 import { BASE_URL } from "../CONSTANTS";
 
 async function askQuery(question) {

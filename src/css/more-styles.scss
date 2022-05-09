@@ -359,7 +359,7 @@
 
 .query {
   &__section{
-    width: 70%;
+    width: 80vw;
     // background-color: rgb(235, 245, 192);
     margin: 0 auto;
     display: flex;
@@ -382,11 +382,16 @@
   }
   &__container{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
   }
   &__card{
-    width: 100%;
+    width: 90%;
+    min-width: 80%;
+    flex-shrink: 0;
     
     box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
     -webkit-box-shadow: 0px 0px 30px -12px rgba(176,167,167,0.72);
