@@ -11,16 +11,16 @@ import { ExportJsonCsv } from 'react-export-json-csv';
 
 const Table = ({ tableData, headingColumns, title, breakOn = 'medium'}) => {
   console.log(headingColumns);
-  const headers = [
-    {
-      key: 'id',
-      name: 'ID',
-    },
-    {
-      key: 'fname',
-      name: 'First Name',
-    },
-  ]
+  // const headers = [
+  //   {
+  //     key: 'id',
+  //     name: 'ID',
+  //   },
+  //   {
+  //     key: 'fname',
+  //     name: 'First Name',
+  //   },
+  // ]
   // {
   //   rollno: "LXX20XXXX",
   //     name: "Lewis Hamilton",

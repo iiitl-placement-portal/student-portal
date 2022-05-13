@@ -131,6 +131,18 @@ class Queries extends Component {
                     </div>
                   </form>
                 </div> */}
+                {/* 
+                  <div className="query__card"> 
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <h6>Ques.  Are placements Online or offlineAre placements Online or offlineAre placements Online or offline Are placements Online or offline ?</h6>
+                      <h5>Asked by : EDT</h5>
+                      <div className="query__card-details">
+                      <textarea {...register("Query", {})}    placeholder="type your answer...." />
+                      
+                        <input className="query_submit" type="submit"  value={"Reply"} />
+                      </div>
+                    </form> 
+                  </div> */}
               </main>
             </div>
           </main>
@@ -141,16 +153,3 @@ class Queries extends Component {
 }
 
 export default Queries;
-{
-  /* <div className="query__card"> 
-  <form onSubmit={handleSubmit(onSubmit)}>
-    <h6>Ques.  Are placements Online or offlineAre placements Online or offlineAre placements Online or offline Are placements Online or offline ?</h6>
-    <h5>Asked by : EDT</h5>
-    <div className="query__card-details">
-      <textarea {...register("Query", {})}    placeholder="type your answer...." />
-
-      <input className="query_submit" type="submit"  value={"Reply"} />
-    </div>
-  </form> 
-</div> */
-}

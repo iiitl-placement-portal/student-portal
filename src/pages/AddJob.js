@@ -69,7 +69,7 @@ const AddJob = () => {
       },
       body: JSON.stringify(data),
     });
-    const retData = await result.json();
+    // const retData = await result.json();
     // console.log("data", retData);
     if (result.status === 200) alert("Job Added Successfully");
     else alert("Addition of Job Unsuccessful");
@@ -83,6 +83,7 @@ const AddJob = () => {
           <img
             className="AddJob__section-heading"
             src="/images/logo-iiitl.png"
+            alt="company logo"
           />
           <h3>Add Job</h3>
         </div>

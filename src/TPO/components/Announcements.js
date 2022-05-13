@@ -1,5 +1,4 @@
 import React from "react";
-import AnnouncementCard from "./AnnouncementCard";
 import { BASE_URL } from "../../CONSTANTS";
 import "../../css/styles.css";
 import AnnouncementForm from "./AnnouncementForm";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Footer from "./Footer";
 import { BASE_URL } from "./../../CONSTANTS";
 
 const acceptJob = async id => {
@@ -106,16 +105,17 @@ const getFormDetails = async id => {
 const FilledForm = () => {
   const [formData, setFormData] = useState("");
 
-  useEffect(async () => {
+  useEffect(() => {
     const x = window.location.pathname.split("/").pop();
     console.log(x);
 
-    const data = await getFormDetails(x);
-    await setFormData(data);
+    getFormDetails(x).then(data => {
+      setFormData(data);
+    });
     // console.log("formdata", formData)
   }, []);
 
-  const { register, handleSubmit } = useForm();
+  const { register } = useForm();
 
   return (
     <div className="flex flex-col overflow-hidden">

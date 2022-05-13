@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import moment from "moment";
-import Table from "./components/Table";
+// import Table from "./components/Table";
 
 import SvgIcon from "../components/SvgIcon";
 import { BASE_URL } from "../CONSTANTS";
 
-const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
+// const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
 
 const getJobDetails = async (url) => {
   try {

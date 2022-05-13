@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/more-styles.css";
 import AllPendingJobs from "./components/AllPendingJobs";
 
