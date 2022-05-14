@@ -1,16 +1,78 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import JobProfile from "../components/JobProfile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
-import moment from "moment";
-// import Table from "./components/Table";
+import "./components/css/table.css";
 
-import SvgIcon from "../components/SvgIcon";
+// import SvgIcon from "../components/SvgIcon";
 import { BASE_URL } from "../CONSTANTS";
+import { ExportJsonCsv } from "react-export-json-csv";
 
-// const tableFields = ["#", "rollno", "name", "backlogs", "cgpa", "profile"];
+const tableFields = [
+  "#",
+  "Enrollment",
+  "Full Name",
+  "Backlogs",
+  "CGPA",
+  "profile",
+];
 
-const getJobDetails = async (url) => {
+const headings = [
+  "srno",
+  "enrollmentNumber",
+  "fullName",
+  "backlogs",
+  "cgpa",
+  "profile",
+];
+
+const headingColumnsCsv = [
+  {
+    key: "enrollmentNumber",
+    name: "Enrollment Number",
+  },
+  {
+    key: "fullName",
+    name: "Full Name",
+  },
+  {
+    key: "gender",
+    name: "Gender",
+  },
+  {
+    key: "contactNo",
+    name: "Contact Number",
+  },
+  {
+    key: "email",
+    name: "Email",
+  },
+  {
+    key: "passoutBatch",
+    name: "Passout year",
+  },
+  {
+    key: "backlogs",
+    name: "Backlogs",
+  },
+  {
+    key: "cgpa",
+    name: "CGPA",
+  },
+  {
+    key: "linkedInURL",
+    name: "LinkedIn",
+  },
+  {
+    key: "resumeUrl",
+    name: "Resume",
+  },
+];
+
+const stuData = [];
+
+const getAppliedStudents = async url => {
   try {
     const data = await fetch(`${BASE_URL}${url}`, {
       method: "get",
@@ -22,7 +84,7 @@ const getJobDetails = async (url) => {
 
     const retData = await data.json();
 
-    // console.log("data", retData);
+    console.log("data", retData);
 
     return retData;
   } catch (err) {
@@ -30,155 +92,105 @@ const getJobDetails = async (url) => {
   }
 };
 
-class JobProfile extends Component {
+class JobProfileTpo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: "",
-      jobDetails: { studentsApplied: [] },
+      studentsApplied: [],
     };
   }
 
   componentDidMount() {
-    const url = window.location.pathname;
+    const url = window.location.pathname + "/students";
     const jobId = url.split("/").slice(-1)[0];
     // console.log(url);
     // this.setState({id:ret});
 
-    getJobDetails(url).then(val => {
+    getAppliedStudents(url).then(val => {
       this.setState({
-        jobDetails: val,
+        studentsApplied: val,
         id: jobId,
       });
     });
   }
 
   render() {
-    const students = this.state.jobDetails.studentsApplied.map(val => {
+    stuData.splice(0, stuData.length);
+
+    const students = this.state.studentsApplied.map((val, index) => {
+      val = {
+        srno: index + 1,
+        ...val,
+      };
+
+      // console.log("val", val);
+      let rowData = [];
+
+      headings.forEach(key => {
+        rowData.push({
+          key,
+          value: val[key],
+        });
+      });
+
+      // console.log("r", rowData);
+
       return (
-        <li className="students__applyCard">
-          <Link to={`/studentprofile/${val._id}`}>
-            {val.fullName}, {val.enrollmentNumber}, {val.cgpa}
-            {val.approvedByTPO ? "Approved" : "Not approved"}
-          </Link>
-        </li>
+        <tr key={val._id}>
+          {rowData.map((data, index) => {
+            if (data.key === "profile") {
+              return (
+                <td key={index} data-heading={data.key}>
+                  <Link to={`/studentprofile/${val._id}`}>
+                    <FontAwesomeIcon
+                      icon={faArrowAltCircleRight}
+                      className="ml-2 website-arrow-icon"
+                    />
+                  </Link>
+                </td>
+              );
+            }
+            return (
+              <td key={index} data-heading={data.key}>
+                {data.value}
+              </td>
+            );
+          })}
+        </tr>
       );
     });
 
     return (
       <div className="flex flex-col overflow-hidden">
-        <div className="jobProfile">
-          <div className="jobProfile__section-1">
-            <div className="company-image-container">
-              <SvgIcon src="logo.png" classname="company-logo" />
-            </div>
-            <hr style={{ border: "1px solid darkgrey", width: "90%" }} />
-            <div className="company-details-container">
-              <p className="company-name">
-                <a
-                  href={this.state.jobDetails.companyWebsite}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {this.state.jobDetails.companyName}
-
-                  <FontAwesomeIcon
-                    icon={faArrowAltCircleRight}
-                    className="ml-2 website-arrow-icon"
-                  />
-                </a>
-              </p>
-            </div>
+        <JobProfile />
+        <div className="table-container my-5">
+          <div
+            className="table-container__title"
+            style={{ justifyContent: "space-around" }}
+          >
+            <h2>Applied Students</h2>
+            <ExportJsonCsv
+              headers={headingColumnsCsv}
+              items={this.state.studentsApplied}
+            >
+              Download Data
+            </ExportJsonCsv>
           </div>
-          <div className="jobProfile__section-2">
-            <p className="job-id">{this.state.jobDetails.jobId}</p>
-            <br />
-            <div className="job-description">
-              <p>
-                <span className="description-titles">Job Description : </span>
-                {this.state.jobDetails.jobDescription}
-              </p>
-              <p>
-                <span className="description-titles">Expected Skills : </span>
-                {this.state.jobDetails.qualifications}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                Koordination dieser Bestellung hinter den Kulissen wollen wir
-                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
-              <p>
-                <span className="description-titles">
-                  Your role as {this.state.jobDetails.jobDescription} :{" "}
-                </span>
-                {this.state.jobDetails.jobRole}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                Koordination dieser Bestellung hinter den Kulissen wollen wir
-                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
-              <p>
-                <span className="description-titles">
-                  About Company and more info :{" "}
-                </span>
-                {this.state.jobDetails.aboutCompany}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                Koordination dieser Bestellung hinter den Kulissen wollen wir
-                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
-            </div>
-          </div>
-          <div className="jobProfile__section-3">
-            <p>
-              <span className="description-titles">Package :</span>{" "}
-              {this.state.jobDetails.package}
-            </p>
-            <p>
-              <span className="description-titles">Location :</span>{" "}
-              {this.state.jobDetails.postingLocation}
-            </p>
-            <p>
-              <span className="description-titles">Batches Graduating in:</span>{" "}
-              {this.state.jobDetails.batchesAllowed?.join(", ")}
-            </p>
-            <p>
-              <span className="description-titles">Min CGPA :</span>{" "}
-              {this.state.jobDetails.minCgpa}
-            </p>
-            <p>
-              <span className="description-titles">Max Backlog :</span>{" "}
-              {this.state.jobDetails.maxBacklogsAllowed}
-            </p>
-            <p>
-              <span className="description-titles">Is Only for Female :</span>{" "}
-              {this.state.jobDetails.onlyForFemales ? "Yes" : "No"}
-            </p>
-            <p>
-              <span className="description-titles">Last date to apply :</span>
-              <br />
-              {moment(this.state.jobDetails.deadlineDate).format(
-                "DD-MM-YYYY hh:mm A"
-              )}
-            </p>
-          </div>
-        </div>
-        <div className="students__applied">
-          <ul>{students}</ul>
-          {/* <Table
-              tableData={this.state.jobDetails.studentsApplied}
-              headingColumns={tableFields}
-              title="All Students"
-            /> */}
+          <table className="table-container__table  table-container__table--break-md">
+            <thead>
+              <tr>
+                {tableFields.map((val, ind) => {
+                  return <th key={ind}>{val}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>{students}</tbody>
+          </table>
         </div>
       </div>
     );
   }
 }
 
-export default JobProfile;
+export default JobProfileTpo;

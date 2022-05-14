@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
 import moment from "moment";
+import * as jwt from "jsonwebtoken";
 
-import SvgIcon from "../components/SvgIcon";
+import SvgIcon from "./SvgIcon";
 import { BASE_URL } from "../CONSTANTS";
 
 const getJobDetails = async id => {
@@ -16,7 +17,7 @@ const getJobDetails = async id => {
       },
     }).then(val => val.json());
 
-    console.log("data", data);
+    // console.log("data", data);
     // console.log("data", JSON.stringify(data.yourRole));
 
     return data;
@@ -186,35 +187,41 @@ class JobProfile extends Component {
               {this.state.jobDetails.onlyForFemales ? "Yes" : "No"}
             </p>
             <p>
-              <span className="description-titles">Eligibile :</span>{" "}
-              {this.state.jobDetails.isStudentEligible ? "Yes" : "No"}
-            </p>
-            {this.state.jobDetails.isStudentEligible ? null : (
-              <p>
-                <span className="description-titles">
-                  Ineligibility Reason :
-                </span>{" "}
-                {this.state.jobDetails.inEligibilityReason}
-              </p>
-            )}
-            <p>
               <span className="description-titles">Last date to apply :</span>
               {moment(this.state.jobDetails.deadlineDate).format(
                 "DD-MM-YYYY hh:mm A"
               )}
             </p>
-            <p className="apply-button-container">
-              {this.state.jobDetails.isStudentEligible ? (
-                <button
-                  className="btn text-gray-100 bg-green-600 hover:bg-green-800"
-                  onClick={() => applyForJob(this.state.id)}
-                >
-                  Apply
-                </button>
-              ) : (
-                ""
-              )}
-            </p>
+            {jwt.decode(JSON.parse(localStorage.getItem("token")).token)
+              .role === "tpo" ? null : (
+              <>
+                <p>
+                  <span className="description-titles">Eligibile :</span>{" "}
+                  {this.state.jobDetails.isStudentEligible ? "Yes" : "No"}
+                </p>
+                {this.state.jobDetails.isStudentEligible ? null : (
+                  <p>
+                    <span className="description-titles">
+                      Ineligibility Reason :
+                    </span>{" "}
+                    {this.state.jobDetails.inEligibilityReason}
+                  </p>
+                )}
+
+                <p className="apply-button-container">
+                  {this.state.jobDetails.isStudentEligible ? (
+                    <button
+                      className="btn text-gray-100 bg-green-600 hover:bg-green-800"
+                      onClick={() => applyForJob(this.state.id)}
+                    >
+                      Apply
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                </p>
+              </>
+            )}
           </div>
         </div>
       </div>
