@@ -16,7 +16,8 @@ const getJobDetails = async id => {
       },
     }).then(val => val.json());
 
-    // console.log('data', data);
+    console.log("data", data);
+    // console.log("data", JSON.stringify(data.yourRole));
 
     return data;
   } catch (err) {
@@ -100,46 +101,63 @@ class JobProfile extends Component {
           </div>
           <div className="jobProfile__section-2">
             <p className="job-id">{this.state.jobDetails.jobId}</p>
-            <br />
-            <div className="job-description">
+            <div className="job-description" style={{ whiteSpace: "pre-line" }}>
               <p>
-                <span className="description-titles">Job Description : </span>
-                {this.state.jobDetails.jobDescription}
-              </p>
-              <p>
-                <span className="description-titles">Expected Skills : </span>
-                {this.state.jobDetails.qualifications}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
-                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
-                Koordination dieser Bestellung hinter den Kulissen wollen wir
-                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
-                eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
-              <p>
-                <span className="description-titles">
-                  Your role as {this.state.jobDetails.jobDescription} :{" "}
-                </span>
+                <span className="description-titles">Job Role : </span>
                 {this.state.jobDetails.jobRole}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+              </p>
+              <div>
+                <span className="description-titles">Job Description : </span>
+                <p style={{ marginTop: "-5px" }}>
+                  {this.state.jobDetails.jobDescription}
+                  {/* berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
                 Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
                 Koordination dieser Bestellung hinter den Kulissen wollen wir
                 stets flexibel, agil und zielgerichtet auftreten. Daher lautet
                 eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
-              <p>
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die */}
+                </p>
+              </div>
+              <div>
+                <span className="description-titles">
+                  Your role as {this.state.jobDetails.jobRole} :{" "}
+                </span>
+                <p style={{ marginTop: "-5px" }}>
+                  {this.state.jobDetails.yourRole}
+                  {/* berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                Koordination dieser Bestellung hinter den Kulissen wollen wir
+                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die */}
+                </p>
+              </div>
+              <div>
+                <span className="description-titles">Expected Skills : </span>
+                <p style={{ marginTop: "-5px" }}>
+                  {this.state.jobDetails.expectedSkills}
+                  {/* berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
+                Koordination dieser Bestellung hinter den Kulissen wollen wir
+                stets flexibel, agil und zielgerichtet auftreten. Daher lautet
+                eines unserer zentralen Führungsprinzipien "Im Zweifel:
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die */}
+                </p>
+              </div>
+              <div>
                 <span className="description-titles">
                   About Company and more info :{" "}
                 </span>
-                {this.state.jobDetails.aboutCompany}
-                berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
+                <p style={{ marginTop: "-5px" }}>
+                  {this.state.jobDetails.aboutCompany}
+                  {/* berste Ziel unseres Unternehmens ist die Zufriedenheit unserer
                 Kunden. Vom Moment der Online-Bestellung bis zur reibungslosen
                 Koordination dieser Bestellung hinter den Kulissen wollen wir
                 stets flexibel, agil und zielgerichtet auftreten. Daher lautet
                 eines unserer zentralen Führungsprinzipien "Im Zweifel:
-                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die
-              </p>
+                Handeln"! Wir möchten, dass unsere Teams zusammenarbeiten, die */}
+                </p>
+              </div>
             </div>
           </div>
           <div className="jobProfile__section-3">
@@ -181,7 +199,6 @@ class JobProfile extends Component {
             )}
             <p>
               <span className="description-titles">Last date to apply :</span>
-              <br />
               {moment(this.state.jobDetails.deadlineDate).format(
                 "DD-MM-YYYY hh:mm A"
               )}
