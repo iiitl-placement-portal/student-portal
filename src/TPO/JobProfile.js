@@ -98,6 +98,7 @@ class JobProfileTpo extends Component {
     this.state = {
       id: "",
       studentsApplied: [],
+      jobId: "",
     };
   }
 
@@ -109,8 +110,9 @@ class JobProfileTpo extends Component {
 
     getAppliedStudents(url).then(val => {
       this.setState({
-        studentsApplied: val,
+        studentsApplied: val.studentsApplied,
         id: jobId,
+        jobId: val.jobId,
       });
     });
   }
@@ -173,6 +175,7 @@ class JobProfileTpo extends Component {
             <ExportJsonCsv
               headers={headingColumnsCsv}
               items={this.state.studentsApplied}
+              fileTitle={"Students_Applied_for_" + this.state.jobId}
             >
               Download Data
             </ExportJsonCsv>
