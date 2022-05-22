@@ -15,6 +15,7 @@ const tableFields = [
   "Full Name",
   "Backlogs",
   "CGPA",
+  "Placed",
   "profile",
 ];
 
@@ -24,6 +25,7 @@ const headings = [
   "fullName",
   "backlogs",
   "cgpa",
+  "placed",
   "profile",
 ];
 
@@ -92,6 +94,36 @@ const getAppliedStudents = async url => {
   }
 };
 
+
+const markPlaced = async (url, id, job) => {
+  try {
+    const data = await fetch(`${BASE_URL}${url}`, {
+      method: "post",
+      headers: {
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("token")).token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        job,
+        jobId : id
+      })
+    });
+
+    if(data.status === 200) alert("Marked placed");
+    else alert("Unsuccessful")
+
+    const retData = await data.json();
+
+    console.log("data", retData);
+
+    return retData;
+  } catch (err) {
+    console.error("Error", err);
+  }
+};
+
+
 class JobProfileTpo extends Component {
   constructor(props) {
     super(props);
@@ -103,12 +135,12 @@ class JobProfileTpo extends Component {
   }
 
   componentDidMount() {
-    const url = window.location.pathname + "/students";
+    const url = window.location.pathname;
     const jobId = url.split("/").slice(-1)[0];
-    // console.log(url);
+    console.log(jobId);
     // this.setState({id:ret});
 
-    getAppliedStudents(url).then(val => {
+    getAppliedStudents(url + "/students").then(val => {
       this.setState({
         studentsApplied: val.studentsApplied,
         id: jobId,
@@ -150,6 +182,32 @@ class JobProfileTpo extends Component {
                       className="ml-2 website-arrow-icon"
                     />
                   </Link>
+                </td>
+              );
+            }
+            if (data.key === "placed") {
+              return (
+                <td key={index} data-heading={data.key}>
+
+                  {
+                    val.placed ? 
+                      "Placed" : 
+                        (
+                          <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-half" 
+                            onClick={event => {
+                                    event.preventDefault();
+                                    markPlaced(
+                                      `/tpo/mark-placed/${val._id}`,
+                                      this.state.id,
+                                      this.state.jobId
+                                    );
+                                  }}
+                          >
+                            Mark Placed
+                          </button>
+                        )
+                  }
+                  
                 </td>
               );
             }
