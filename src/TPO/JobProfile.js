@@ -72,8 +72,6 @@ const headingColumnsCsv = [
   },
 ];
 
-const stuData = [];
-
 const getAppliedStudents = async url => {
   try {
     const data = await fetch(`${BASE_URL}${url}`, {
@@ -86,14 +84,13 @@ const getAppliedStudents = async url => {
 
     const retData = await data.json();
 
-    console.log("data", retData);
+    // console.log("data", retData);
 
     return retData;
   } catch (err) {
     console.error("Error in getting Job Details", err);
   }
 };
-
 
 const markPlaced = async (url, id, job) => {
   try {
@@ -106,23 +103,22 @@ const markPlaced = async (url, id, job) => {
       },
       body: JSON.stringify({
         job,
-        jobId : id
-      })
+        jobId: id,
+      }),
     });
 
-    if(data.status === 200) alert("Marked placed");
-    else alert("Unsuccessful")
+    if (data.status === 200) alert("Marked placed");
+    else alert("Unsuccessful");
 
     const retData = await data.json();
 
-    console.log("data", retData);
+    // console.log("data", retData);
 
     return retData;
   } catch (err) {
     console.error("Error", err);
   }
 };
-
 
 class JobProfileTpo extends Component {
   constructor(props) {
@@ -135,12 +131,14 @@ class JobProfileTpo extends Component {
   }
 
   componentDidMount() {
-    const url = window.location.pathname;
+    let url = window.location.pathname;
     const jobId = url.split("/").slice(-1)[0];
-    console.log(jobId);
+    // console.log(jobId);
     // this.setState({id:ret});
 
-    getAppliedStudents(url + "/students").then(val => {
+    url = url + "/student";
+
+    getAppliedStudents(url).then(val => {
       this.setState({
         studentsApplied: val.studentsApplied,
         id: jobId,
@@ -150,8 +148,6 @@ class JobProfileTpo extends Component {
   }
 
   render() {
-    stuData.splice(0, stuData.length);
-
     const students = this.state.studentsApplied.map((val, index) => {
       val = {
         srno: index + 1,
@@ -188,26 +184,23 @@ class JobProfileTpo extends Component {
             if (data.key === "placed") {
               return (
                 <td key={index} data-heading={data.key}>
-
-                  {
-                    val.placed ? 
-                      "Placed" : 
-                        (
-                          <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-half" 
-                            onClick={event => {
-                                    event.preventDefault();
-                                    markPlaced(
-                                      `/tpo/mark-placed/${val._id}`,
-                                      this.state.id,
-                                      this.state.jobId
-                                    );
-                                  }}
-                          >
-                            Mark Placed
-                          </button>
-                        )
-                  }
-                  
+                  {val.placed ? (
+                    "Placed"
+                  ) : (
+                    <button
+                      className="btn text-white bg-blue-600 hover:bg-blue-700 w-half"
+                      onClick={event => {
+                        event.preventDefault();
+                        markPlaced(
+                          `/tpo/mark-placed/${val._id}`,
+                          this.state.id,
+                          this.state.jobId
+                        );
+                      }}
+                    >
+                      Mark Placed
+                    </button>
+                  )}
                 </td>
               );
             }
